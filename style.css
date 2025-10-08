@@ -20,7 +20,7 @@
   --color-teal-800: rgba(41, 150, 161, 1);
   --color-red-400: rgba(255, 84, 89, 1);
   --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-400: rgb(136, 85, 69);
   --color-orange-500: rgba(168, 75, 47, 1);
 
   /* RGB versions for opacity control */
