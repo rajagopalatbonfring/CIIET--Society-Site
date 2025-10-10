@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .accordion-content {
@@ -25,12 +25,19 @@
 <body class="bg-white">
     <!-- Navigation -->
     <header class="sticky top-0 z-50 w-full transition-colors duration-300 border-b bg-gray-100/80 border-transparent ">
-        <nav class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <nav class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 ">
             <a href="/">
-                <div class="text-gray-900">
-                    <span class="text-2xl font-black tracking-wider font-headline uppercase">
-                        CIIET
-                    </span>
+                <div class="text-gray-900 flex align-center justify-center">
+                    <div class="flex h-full">
+                        <p class="text-2xl pr-2 font-black tracking-wider font-headline uppercase border-r-2 border-red-500">
+                            CIIET
+                        </p>
+                    </div>
+                    <div class="flex h-full">
+                        <p class="text-xs pl-2">
+                            Consortium for Innovators in <br> Engineering & Technology
+                        </p>
+                    </div>
                 </div>
             </a>
             
@@ -68,76 +75,92 @@
     </header>
 
     <!-- Hero -->
-    <section class="py-12 md:py-20"> 
-        <div class="container mx-auto px-4 md:px-6">
+    <section class="py-12 md:py-20 relative"> 
+        <img src="gear5th.png" class="-left-48 h-[90vh] absolute" alt="">
+                <!-- <div class="bg-black/20 absolute top-0 left-0 right-0 bottom-0 z-10"></div>
+         
+        <div class="absolute top-0 left-0 right-0 bottom-0 z-10">
+            <video autoplay muted loop playsinline class="bg-video opacity-[.05] w-full h-full object-cover">
+                <source src="herobgvd.mp4" type="video/mp4">
+            </video>
+        </div> -->
+        <div class="relative z-20 container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900">
-                        <span class="flex items-center gap-4">YOUR 
-                            VISION <!-- <img src="https://picsum.photos/seed/vision/384/128" alt="A person looking out at a sunset over the ocean, representing vision." data-ai-hint="sunset ocean" width="180" height="60" class="rounded-full object-cover h-16"> -->
+                    <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight">
+                        <span class="flex items-center gap-4">
+                            Where Engineering Brilliance Meets  
+                            <!-- <img src="https://picsum.photos/seed/vision/384/128" alt="A person looking out at a sunset over the ocean, representing vision." data-ai-hint="sunset ocean" width="180" height="60" class="rounded-full object-cover h-16"> -->
                         </span>
-                        <span class="flex items-center gap-4">OUR 
-                            <!-- <img src="https://picsum.photos/seed/blueprint/384/128" alt="A close-up of architectural blueprints." data-ai-hint="architectural blueprints" width="180" height="60" class="rounded-full object-cover h-16"> -->
-                            BLUEPRINT.
+                        <span class="flex items-center gap-4">
+                            <!-- <img class="rounded-full bg-blue-50 object-cover h-32" src="freepik__background__6322.png" alt="A close-up of architectural blueprints." width="180" height="60"> -->
+                             Technological <span class="rounded-2xl py-3 px-2 bg-red-600 text-white text-6xl">Breakthrough.</span>
                         </span>
                     </h1>
                 </div>
                 <div class="space-y-4 text-right">
                     <p class="text-gray-600">Connect with 40,000+ engineers, researchers, and technology leaders driving innovation across aerospace, biomedical, sustainable energy, AI, and emerging technologies globally.</p>
-                    <div class="text-blue-600 font-bold text-4xl">10k+ 
+                    <div class="text-red-600 font-bold text-4xl">10k+ 
                         <span class="text-gray-900 text-lg block font-normal">Happy Innovators</span>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-12 grid md:grid-cols-2 gap-4">
-                <div class="aspect-[3/2] relative rounded-lg overflow-hidden">
-                    <img src="https://picsum.photos/seed/worker/600/400" alt="A construction worker using a grinder, creating sparks." data-ai-hint="construction worker" class="object-cover absolute h-full w-full inset-0">
+            <div class="mt-12 grid md:grid-cols-4 gap-4 h-[30rem] overflow-hidden">
+                <div class="col-span-2 relative rounded-lg overflow-hidden">
+                    <img src="https://picsum.photos/seed/worker/600/400" alt="Construction worker" class="object-cover absolute h-full w-full inset-0 aspect-square">
                 </div>
-                <div class="aspect-[3/2] relative rounded-lg overflow-hidden">
-                    <img src="https://picsum.photos/seed/construction/600/400" alt="A multi-story building under construction." data-ai-hint="building construction" class="object-cover absolute h-full w-full inset-0">
+
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://picsum.photos/seed/construction/600/400" alt="Building construction" class="object-cover absolute h-full w-full inset-0 aspect-square">
+                </div>
+
+
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://picsum.photos/seed/tool/600/400" alt="Tools on a construction site" class="object-cover absolute h-full w-full inset-0 aspect-square">
                 </div>
             </div>
 
+
             <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div>
-                    <p class="text-4xl font-bold text-blue-600">40,000+</p>
+                    <p class="text-4xl font-bold text-red-600">40,000+</p>
                     <p class="text-gray-600 mt-1">Active Professionals</p>
                 </div>
                 <div>
-                    <p class="text-4xl font-bold text-blue-600">2,800+</p>
+                    <p class="text-4xl font-bold text-red-600">2,800+</p>
                     <p class="text-gray-600 mt-1">Innovation Projects</p>
                 </div>
                 <div>
-                    <p class="text-4xl font-bold text-blue-600">500+</p>
+                    <p class="text-4xl font-bold text-red-600">500+</p>
                     <p class="text-gray-600 mt-1">Partner Companies</p>
                 </div>
                 <div>
-                    <p class="text-4xl font-bold text-blue-600">98%</p>
+                    <p class="text-4xl font-bold text-red-600">98%</p>
                     <p class="text-gray-600 mt-1">Successful Tech Transfers</p>
                 </div>
             </div>
 
             <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <button class="inline-flex items-center justify-start gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                     </svg>
                     Explore Innovations
                 </button>
-                <button class="inline-flex items-center justify-start gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                     Join Network
                 </button>
-                <button class="inline-flex items-center justify-start gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     Become a Partner
                 </button>
-                <button class="inline-flex items-center justify-start gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
@@ -148,12 +171,12 @@
     </section>
 
     <!-- Featured Breakthrough Innovations -->
-    <section class="bg-white text-gray-900 py-20 sm:py-28">
+    <section class="bg-gray-100 text-gray-900 py-20 sm:py-28">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
                     <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        The World's Premier Engineering <span class="text-blue-600">Innovation Ecosystem</span>
+                        The World's Premier Engineering <span class="text-red-600">Innovation Ecosystem</span>
                     </h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
                         Since 1962, CIET has been the catalyst for groundbreaking engineering solutions that shape our world. Our consortium connects visionary engineers with cutting-edge resources, funding opportunities, and collaborative partnerships to accelerate technological advancement.
@@ -242,23 +265,23 @@
     </section>
 
     <!-- Technology Transfer Success -->
-    <section class="py-20 sm:py-28 bg-accent text-accent-foreground">
+    <section class="py-20 sm:py-28 bg-orange-600 text-accent-foreground">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
+                    <h2 class="text-white font-headline text-4xl sm:text-5xl font-bold tracking-tight">
                         Building Tomorrow's Landmarks with Expert Precision.
                     </h2>
                 </div>
                 <div class="space-y-4">
-                    <p class="text-accent-foreground/80">
+                    <p class="text-white/90">
                         Our consortium has been the driving force behind some of the most significant engineering breakthroughs of the last decade. We connect visionary engineers with the resources they need to turn ambitious ideas into reality.
                     </p>
                     <div class="flex gap-4">
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 px-8">
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-non bg-secondary text-secondary-foreground h-11 px-8">
                             The Projects
                         </button>
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-accent-foreground/50 text-accent-foreground hover:bg-accent-foreground hover:text-accent h-11 px-8">
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-accent-foreground/50 text-white bg-accent-foreground h-11 px-8">
                             View All
                         </button>
                     </div>
@@ -489,7 +512,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- service -->
     <section class="py-20 sm:py-28 bg-background text-foreground">
@@ -1047,7 +1069,6 @@
         </div>
     </section>
 
-
     <!-- Service offerings CTA -->
     <section class="py-20 sm:py-28 bg-background text-foreground">
         <div class="container mx-auto px-4 md:px-6">
@@ -1108,7 +1129,6 @@
     </section>
 
     <!-- Latest news -->
-
     <section class="py-20 sm:py-28 bg-background text-foreground">
         <div class="container mx-auto px-4 md:px-6">
             <div class="flex justify-between items-center mb-16">
@@ -1350,7 +1370,6 @@
 
         </div>
     </section> -->
-
 
     <!-- CTA Section -->
     <section class="py-20 sm:py-32 bg-gray-900 relative overflow-hidden">
