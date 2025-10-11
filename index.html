@@ -122,40 +122,43 @@
                 </div>
             </div>
 
-            <div id="dynamicGrid" class="mt-12 flex gap-4 h-[30rem] overflow-hidden transition-all duration-700 ease-in-out">
+            <div id="dynamicGrid" 
+                class="mt-12 flex gap-4 h-[30rem] overflow-hidden transition-all duration-700 ease-in-out bg-white">
+                
                 <!-- Card 1 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
-                    <img src="https://picsum.photos/seed/worker/600/400" alt="Quantum-Enhanced Medical Imaging research facility" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-transform duration-700 ease-in-out">
-                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-700 ease-in-out"></div>
-                    <div class="content absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-700 ease-in-out">
-                    <h3 class="text-lg font-bold">Breakthrough Innovation</h3>
-                    <p class="text-sm opacity-90 hidden md:block">Where impossible becomes reality</p>
+                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
+                    <img src="https://picsum.photos/seed/worker/600/400" 
+                        alt="Quantum-Enhanced Medical Imaging research facility" 
+                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
+                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
+                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Breakthrough Innovation</h3>
+                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">Where impossible becomes reality</p>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
-                    <img src="https://picsum.photos/seed/construction/600/400" alt="CIET engineers collaborating globally" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-transform duration-700 ease-in-out">
-                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-700 ease-in-out"></div>
-                    <div class="content absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-700 ease-in-out">
-                    <h3 class="text-lg font-bold">Global Network</h3>
-                    <p class="text-sm opacity-90 hidden md:block">40,000+ Professionals</p>
+                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
+                    <img src="https://picsum.photos/seed/construction/600/400" 
+                        alt="CIET engineers collaborating globally" 
+                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
+                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
+                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Global Network</h3>
+                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">40,000+ Professionals</p>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden transition-all duration-700 ease-in-out">
-                    <img src="https://picsum.photos/seed/tool/600/400" alt="CIET innovations solving real-world challenges" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-transform duration-700 ease-in-out">
-                    <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-700 ease-in-out"></div>
-                    <div class="content absolute bottom-4 left-4 text-white opacity-0 transition-opacity duration-700 ease-in-out">
-                    <h3 class="text-lg font-bold">Real-World Impact</h3>
-                    <p class="text-sm opacity-90 hidden md:block">2 Billion Lives Touched</p>
+                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
+                    <img src="https://picsum.photos/seed/tool/600/400" 
+                        alt="CIET innovations solving real-world challenges" 
+                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
+                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
+                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Real-World Impact</h3>
+                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">2 Billion Lives Touched</p>
                     </div>
                 </div>
             </div>
+
 
 
             <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -1727,53 +1730,84 @@
     <script>
     const cards = document.querySelectorAll('#dynamicGrid .card');
     let activeIndex = 0;
+    let isHovering = false;
 
     function updateGrid() {
-    cards.forEach((card, i) => {
-        const img = card.querySelector('.card-img');
-        const content = card.querySelector('.content');
-        const overlay = card.querySelector('.overlay');
+        cards.forEach((card, i) => {
+            const img = card.querySelector('.card-img');
+            const content = card.querySelector('.content');
+            const heading = content.querySelector('h3');
+            const paragraph = content.querySelector('p');
 
-        if (i === activeIndex) {
-        card.style.flex = "2"; // Expanded
-        card.style.zIndex = "10";
-        card.style.transform = "scale(1.02)";
-        content.style.opacity = "1"; // Show text
-        overlay.style.opacity = "1"; 
-        
-        // Hover: show details more clearly
-        card.onmouseenter = () => {
-            img.style.transform = "scale(1.05)";
-            content.style.opacity = "1";
-        };
-        card.onmouseleave = () => {
-            img.style.transform = "scale(1.02)";
-        };
-        } else {
-        card.style.flex = "1";
-        card.style.zIndex = "1";
-        card.style.transform = "scale(1)";
-        content.style.opacity = "0"; // Hide text
-        overlay.style.opacity = "0";
-        
-        // Non-active hover: only zoom image slightly
-        card.onmouseenter = () => {
-            img.style.transform = "scale(1.05)";
-        };
-        card.onmouseleave = () => {
-            img.style.transform = "scale(1)";
-        };
-        }
-    });
+            if (i === activeIndex) {
+                // Active card
+                card.style.flex = "2.5";
+                card.style.zIndex = "10";
+                card.style.transform = "scale(1.02)";
+                heading.style.opacity = "1";
+                heading.style.transform = "translateY(0)";
+                paragraph.style.opacity = "1";
+                paragraph.style.transform = "translateY(0)";
 
-    activeIndex = (activeIndex + 1) % cards.length;
+                // Hover: just zoom image a bit
+                card.onmouseenter = () => {
+                    isHovering = true;
+                    img.style.transform = "scale(1.05)";
+                };
+                card.onmouseleave = () => {
+                    isHovering = false;
+                    img.style.transform = "scale(1.02)";
+                };
+            } else {
+                // Non-active cards
+                card.style.flex = "1";
+                card.style.zIndex = "1";
+                card.style.transform = "scale(1)";
+                heading.style.opacity = "0";
+                heading.style.transform = "translateY(8px)";
+                paragraph.style.opacity = "0";
+                paragraph.style.transform = "translateY(8px)";
+
+                // Hover: show heading only
+                card.onmouseenter = () => {
+                    img.style.transform = "scale(1.05)";
+                    heading.style.opacity = "1";
+                    heading.style.transform = "translateY(0)";
+                };
+                card.onmouseleave = () => {
+                    img.style.transform = "scale(1)";
+                    heading.style.opacity = "0";
+                    heading.style.transform = "translateY(8px)";
+                };
+            }
+        });
+
+        activeIndex = (activeIndex + 1) % cards.length;
     }
 
     // Initial state
     updateGrid();
 
-    // Cycle through cards
-    setInterval(updateGrid, 3500);
+    // Auto-cycle through cards
+    let interval = setInterval(() => {
+        if (!isHovering) {
+            updateGrid();
+        }
+    }, 3500);
+
+    // Click to activate specific card
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            activeIndex = index;
+            updateGrid();
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (!isHovering) {
+                    updateGrid();
+                }
+            }, 3500);
+        });
+    });
     </script>
 
 </body>
