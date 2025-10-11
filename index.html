@@ -39,6 +39,22 @@
         .card-title {
             transition: font-size 800ms cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+
+        #Premier { 
+            background-image: url("PremierbgImg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+        }
+
+
+
+
+
+
+
     </style>
 </head>
 <body class="bg-white">
@@ -79,11 +95,11 @@
             </div>
             
             <div class="flex items-center gap-2">
-                <button class="hidden bg-red-600 text-white hover:bg-red-700 sm:inline-flex rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3">
+                <button class="hidden bg-red-600 text-white hover:bg-red-700 sm:inline-flex rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3">
                     Explore Innovation Hub
                 </button>
                 
-                <button class="lg:hidden text-gray-700 hover:text-blue-600 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-100 h-10 w-10">
+                <button class="lg:hidden text-gray-700 hover:text-red-600 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-100 h-10 w-10">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -98,7 +114,7 @@
         <img src="gear5th.png" class="-left-48 h-[90vh] absolute" alt="">
         <!-- <img src="circuitImg.png" class="top-0 right-0 h-[90vh] -bottom-96 absolute" alt=""> -->
         <div class="relative z-20 container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 items-center justify-between">
                 <div>
                     <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight">
                     <span class="flex items-center gap-4">
@@ -116,9 +132,9 @@
                     </h1>
                 </div>
                 <div class="space-y-4 text-right">
-                    <p class="text-gray-600">Connect with 40,000+ engineers, researchers, and technology leaders driving innovation across aerospace, biomedical, sustainable energy, AI, and emerging technologies globally.</p>
-                    <div class="text-red-600 font-bold text-4xl">10k+ 
-                        <span class="text-gray-900 text-lg block font-normal">Happy Innovators</span>
+                    <p class="text-gray-600 text-right">Connect with 40,000+ engineers, researchers, and technology leaders <br> driving innovation across aerospace, biomedical, sustainable energy, <br> AI, and emerging technologies globally.</p>
+                    <div class="text-red-600 font-bold text-5xl">10k+ 
+                        <span class="text-gray-500 text-lg block font-semibold">Happy Innovators</span>
                     </div>
                 </div>
             </div>
@@ -182,25 +198,25 @@
             </div>
 
             <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                     </svg>
                     Explore Innovations
                 </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
                     Submit a Project
                 </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     Become a Partner
                 </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-blue-50 p-6 text-base">
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
@@ -211,8 +227,11 @@
     </section>
 
     <!-- Featured Breakthrough Innovations -->
-    <section class="bg-gray-100 text-gray-900 py-20 sm:py-28">
-        <div class="container mx-auto px-4 md:px-6">
+    <section class="relative bg-gray-100 text-gray-900 py-20 sm:py-28">
+        <div class="absolute inset-0 bg-black/10 z-10 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 top-20 bottom-20 left-20 right-20 bg-white/30 z-20 rounded-2xl"></div>
+        <div id="Premier"  class="absolute inset-0 bg-red-600/30 z-0"></div>
+        <div class="relative z-20 container mx-auto px-4 md:px-6 ">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
                     <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
@@ -224,7 +243,7 @@
                     
                     <div class="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 shadow-lg group">
                         <img
-                            src="https://picsum.photos/seed/worker/600/400"
+                            src="networkwithworld.jpg"
                             alt="A construction worker using a grinder, creating sparks."
                             class="object-cover group-hover:scale-105 transition-transform duration-500 absolute h-full w-full inset-0"
                             data-ai-hint="construction worker"
@@ -236,7 +255,7 @@
                 <div class="space-y-6">
                     <div class="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 shadow-lg group">
                         <img
-                            src="https://picsum.photos/seed/construction/600/400"
+                            src="second2.jpg"
                             alt="A multi-story building under construction."
                             class="object-cover group-hover:scale-105 transition-transform duration-500 absolute h-full w-full inset-0"
                             data-ai-hint="building construction"
@@ -249,7 +268,7 @@
                             <h3 class="flex">
                                 <button 
                                     type="button" 
-                                    class="accordion-btn flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline text-left"
+                                    class="accordion-btn flex flex-1 items-start justify-between py-4 font-medium transition-all hover:underline text-left"
                                     onclick="toggleAccordion(this)"
                                 >
                                     What types of innovation projects does your company specialize in?
@@ -258,7 +277,7 @@
                                     </svg>
                                 </button>
                             </h3>
-                            <div class="accordion-content pb-4">
+                            <div class="accordion-content">
                                 <p class="text-gray-600">We specialize in cutting-edge projects across aerospace, biomedical engineering, sustainable energy systems, artificial intelligence, robotics, and advanced materials. Our portfolio includes everything from breakthrough medical devices to next-generation aerospace components.</p>
                             </div>
                         </div>
@@ -276,7 +295,7 @@
                                     </svg>
                                 </button>
                             </h3>
-                            <div class="accordion-content pb-4">
+                            <div class="accordion-content">
                                 <p class="text-gray-600">Our partnership process begins with an initial consultation to understand your goals. We then match you with relevant experts, resources, and funding opportunities. Throughout the project, you'll have access to our global network, technical facilities, and mentorship programs.</p>
                             </div>
                         </div>
@@ -294,7 +313,7 @@
                                     </svg>
                                 </button>
                             </h3>
-                            <div class="accordion-content pb-4">
+                            <div class="accordion-content">
                                 <p class="text-gray-600">Members gain exclusive access to our innovation labs, funding opportunities, industry conferences, and a network of 40,000+ professionals. You'll receive priority support for project proposals, access to proprietary research, and opportunities to collaborate on groundbreaking initiatives.</p>
                             </div>
                         </div>
@@ -881,7 +900,7 @@
     </section>
 
     <!-- Upcoming Major Events -->
-    <section class="py-20 sm:py-28 bg-blue-50 text-gray-900">
+    <section class="py-20 sm:py-28 bg-red-50 text-gray-900">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center max-w-4xl mx-auto mb-16">
                 <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -950,17 +969,17 @@
                 <div class="space-y-4">
                     <h3 class="text-2xl font-bold">More Upcoming Events</h3>
                     
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-blue-400 transition-colors">
+                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
                         <p class="font-semibold text-gray-900 text-lg">Young Engineers Conference</p>
                         <p class="text-sm text-gray-600 mt-1">January 22-24, 2026 • Virtual</p>
                     </div>
                     
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-blue-400 transition-colors">
+                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
                         <p class="font-semibold text-gray-900 text-lg">Quantum Technology Workshop</p>
                         <p class="text-sm text-gray-600 mt-1">February 10-12, 2026 • Boston</p>
                     </div>
                     
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-blue-400 transition-colors">
+                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
                         <p class="font-semibold text-gray-900 text-lg">Sustainable Engineering Forum</p>
                         <p class="text-sm text-gray-600 mt-1">April 8-10, 2026 • Copenhagen</p>
                     </div>
@@ -1025,7 +1044,7 @@
                 </div>
                 
                 <!-- Corporate Plan (Featured) -->
-                <div class="flex flex-col bg-white border border-red-600 transition-all duration-300 rounded-xl ring-4 ring-red-100 shadow-2xl shadow-blue-600/10 scale-105">
+                <div class="flex flex-col bg-white border border-red-600 transition-all duration-300 rounded-xl ring-4 ring-red-100 shadow-2xl shadow-red-600/10 scale-105">
                     <div class="py-2 px-4 bg-red-600 text-white text-sm font-bold text-center rounded-t-lg flex items-center justify-center gap-2">
                         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 
                         Most Popular
@@ -1063,7 +1082,7 @@
                         </ul>
                     </div>
                     <div class="p-6 mt-4">
-                        <button class="w-full text-lg py-6 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-blue-600/30 font-medium transition-colors">
+                        <button class="w-full text-lg py-6 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-600/30 font-medium transition-colors">
                             Select Plan
                         </button>
                     </div>
@@ -1110,7 +1129,7 @@
     </section>
 
     <!-- Service offerings CTA -->
-    <section class="py-20 sm:py-28 bg-background text-foreground">
+    <section class="py-20 sm:py-28 bg-gray-400/60 text-foreground">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
@@ -1121,7 +1140,7 @@
                     <p class="mt-6 text-lg text-muted-foreground">
                         Starting with professional work ethics, building relationship and providing quality work is our main priority. Our design process begins with a deep-dive discovery session to understand the project's vision.
                     </p>
-                    <button class="mt-8 bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
+                    <button class="mt-8 bg-red-600 text-accent hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
                         Get Started
                     </button>
                 </div>
@@ -1182,7 +1201,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1: Quantum-Resistant Cryptography -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
                     <div class="overflow-hidden aspect-video relative">
                         <img 
                             src="https://picsum.photos/seed/ciet-quantum-red/600/400" 
@@ -1190,7 +1209,7 @@
                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
                         >
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
+                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
                         <div>
                             <p class="text-sm text-primary font-semibold mb-2">Cybersecurity</p>
                             <h3 class="text-lg font-bold text-foreground mb-4">A Framework for Quantum-Resistant Cryptography in Networked Systems</h3>
@@ -1206,7 +1225,7 @@
                 </div>
 
                 <!-- Card 2: Bio-integrated Materials -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
                     <div class="overflow-hidden aspect-video relative">
                         <img 
                             src="https://picsum.photos/seed/ciet-concrete-red/600/400" 
@@ -1214,7 +1233,7 @@
                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
                         >
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
+                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
                         <div>
                             <p class="text-sm text-primary font-semibold mb-2">Materials Science</p>
                             <h3 class="text-lg font-bold text-foreground mb-4">Bio-integrated Materials for Self-Sustaining Urban Infrastructure</h3>
@@ -1230,7 +1249,7 @@
                 </div>
 
                 <!-- Card 3: Hydrogen Fuel Cells -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
                     <div class="overflow-hidden aspect-video relative">
                         <img 
                             src="https://picsum.photos/seed/ciet-aviation-red/600/400" 
@@ -1238,7 +1257,7 @@
                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
                         >
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
+                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
                         <div>
                             <p class="text-sm text-primary font-semibold mb-2">Aerospace</p>
                             <h3 class="text-lg font-bold text-foreground mb-4">High-Efficiency Hydrogen Fuel Cells for Commercial Aviation</h3>
@@ -1264,7 +1283,7 @@
     </section>
 
     <!-- Join team  -->
-    <!-- <section class="relative py-20 sm:py-28 bg-blue-50 text-gray-900">
+    <!-- <section class="relative py-20 sm:py-28 bg-red-50 text-gray-900">
         <img
             src="https://picsum.photos/seed/ciet-careers-bg/1920/1080"
             alt="A team of engineers working in a modern, sunlit office"
@@ -1273,7 +1292,7 @@
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="text-center max-w-4xl mx-auto mb-16">
                 <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
-                   Join a Team of <span class="text-blue-600">World-Class Innovators</span>
+                   Join a Team of <span class="text-red-600">World-Class Innovators</span>
                 </h2>
                 <p class="mt-6 text-lg text-gray-600">
                     We are looking for brilliant minds to help us solve the world's most complex engineering challenges. Explore a career with CIETech Nexus.
@@ -1281,7 +1300,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white/80 border border-gray-200 hover:border-blue-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
+                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">Senior AI Researcher</h3>
                         <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
@@ -1303,7 +1322,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
+                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
@@ -1311,7 +1330,7 @@
                     </button>
                 </div>
                 
-                <div class="bg-white/80 border border-gray-200 hover:border-blue-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
+                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">Quantum Systems Engineer</h3>
                         <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
@@ -1333,7 +1352,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
+                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
@@ -1341,7 +1360,7 @@
                     </button>
                 </div>
                 
-                <div class="bg-white/80 border border-gray-200 hover:border-blue-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
+                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">Sustainable Energy Analyst</h3>
                         <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
@@ -1363,7 +1382,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
+                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
@@ -1371,7 +1390,7 @@
                     </button>
                 </div>
                 
-                <div class="bg-white/80 border border-gray-200 hover:border-blue-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
+                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">Lead Aerospace Engineer</h3>
                         <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
@@ -1393,7 +1412,7 @@
                             </span>
                         </div>
                     </div>
-                    <button class="text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
+                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="m12 5 7 7-7 7"></path>
@@ -1403,7 +1422,7 @@
             </div>
 
             <div class="mt-16 text-center">
-                <button class="bg-blue-600 text-white hover:bg-blue-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-11 px-8">
+                <button class="bg-red-600 text-white hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-11 px-8">
                     View All Open Positions
                 </button>
             </div>
@@ -1636,7 +1655,7 @@
             });
         }, { threshold: 0.5 });
 
-        document.querySelectorAll('.bg-gradient-to-br.from-blue-50').forEach(el => {
+        document.querySelectorAll('.bg-gradient-to-br.from-red-50').forEach(el => {
             statsObserver.observe(el);
         });
     </script>

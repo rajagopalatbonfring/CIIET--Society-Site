@@ -34,7 +34,7 @@
   --color-orange-400-rgb: 230, 129, 97;
 
   /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light red */
   --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
   --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
   --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
@@ -154,7 +154,7 @@
     --color-gray-200-rgb: 245, 245, 245;
 
     /* Background color tokens (Dark Mode) */
-    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark red */
     --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
     --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
     --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
@@ -214,7 +214,7 @@
   --color-gray-200-rgb: 245, 245, 245;
 
   /* Colorful background palette - Dark Mode */
-  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark red */
   --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
   --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
   --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
@@ -742,7 +742,7 @@ select.form-control {
 
 /* Custom Color Variables */
 :root {
-  --ciet-tech-blue: #2196F3;
+  --ciet-tech-red: #2196F3;
   --ciet-electric-orange: #FF5722;
   --ciet-pure-white: #FFFFFF;
   --ciet-dark-slate: #263238;
@@ -752,7 +752,7 @@ select.form-control {
 
 /* Override design system colors for CIET theme */
 :root {
-  --color-primary: var(--ciet-tech-blue);
+  --color-primary: var(--ciet-tech-red);
   --color-primary-hover: #1976D2;
   --color-primary-active: #1565C0;
   --color-text: var(--ciet-dark-slate);
@@ -768,7 +768,7 @@ select.form-control {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(var(--ciet-tech-blue), 0.1);
+  border-bottom: 1px solid rgba(var(--ciet-tech-red), 0.1);
   transition: all var(--duration-normal) var(--ease-standard);
 }
 
@@ -794,7 +794,7 @@ select.form-control {
 .logo-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--ciet-tech-blue), var(--ciet-electric-orange));
+  background: linear-gradient(135deg, var(--ciet-tech-red), var(--ciet-electric-orange));
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
@@ -812,7 +812,7 @@ select.form-control {
 .logo-main {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   line-height: 1;
 }
 
@@ -845,7 +845,7 @@ select.form-control {
 }
 
 .nav__link:hover {
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
 }
 
 .nav__link::after {
@@ -855,7 +855,7 @@ select.form-control {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--ciet-tech-blue);
+  background: var(--ciet-tech-red);
   transition: width var(--duration-normal) var(--ease-standard);
 }
 
@@ -897,7 +897,7 @@ select.form-control {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--ciet-tech-blue) 0%, var(--ciet-electric-orange) 100%);
+  background: linear-gradient(135deg, var(--ciet-tech-red) 0%, var(--ciet-electric-orange) 100%);
 }
 
 .hero__background {
@@ -906,7 +906,7 @@ select.form-control {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--ciet-tech-blue) 0%, var(--ciet-electric-orange) 100%);
+  background: linear-gradient(135deg, var(--ciet-tech-red) 0%, var(--ciet-electric-orange) 100%);
   opacity: 0.9;
 }
 
@@ -994,14 +994,14 @@ select.form-control {
 .metric-card__number {
   font-size: 48px;
   font-weight: var(--font-weight-bold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   line-height: 1;
   display: inline-block;
 }
 
 .metric-card__suffix {
   font-size: 24px;
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   font-weight: var(--font-weight-bold);
   display: inline-block;
 }
@@ -1087,7 +1087,7 @@ select.form-control {
 
 .innovation-card__lead {
   font-weight: var(--font-weight-medium);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin-bottom: var(--space-12);
 }
 
@@ -1167,7 +1167,7 @@ select.form-control {
   border-radius: var(--radius-lg);
   padding: var(--space-32);
   box-shadow: var(--shadow-lg);
-  border-left: 4px solid var(--ciet-tech-blue);
+  border-left: 4px solid var(--ciet-tech-red);
 }
 
 .research-card__title {
@@ -1215,7 +1215,7 @@ select.form-control {
 
 .funding-total {
   font-weight: var(--font-weight-bold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin-top: var(--space-16);
 }
 
@@ -1313,7 +1313,7 @@ select.form-control {
 }
 
 .partner-logo:hover {
-  background: var(--ciet-tech-blue);
+  background: var(--ciet-tech-red);
   color: white;
   transform: translateY(-2px);
 }
@@ -1322,7 +1322,7 @@ select.form-control {
   text-align: center;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin: var(--space-24) 0;
 }
 
@@ -1348,7 +1348,7 @@ select.form-control {
 }
 
 .benefit-item h3 {
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin-bottom: var(--space-8);
 }
 
@@ -1381,7 +1381,7 @@ select.form-control {
 }
 
 .featured-event {
-  background: linear-gradient(135deg, var(--ciet-tech-blue), var(--ciet-electric-orange));
+  background: linear-gradient(135deg, var(--ciet-tech-red), var(--ciet-electric-orange));
   color: white;
   padding: var(--space-32);
   border-radius: var(--radius-lg);
@@ -1433,7 +1433,7 @@ select.form-control {
 
 .event-item__date {
   font-weight: var(--font-weight-semibold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   white-space: nowrap;
 }
 
@@ -1486,7 +1486,7 @@ select.form-control {
 .membership-card__price {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin-bottom: var(--space-24);
 }
 
@@ -1532,7 +1532,7 @@ select.form-control {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--ciet-dark-slate) 0%, var(--ciet-tech-blue) 50%, var(--ciet-electric-orange) 100%);
+  background: linear-gradient(135deg, var(--ciet-dark-slate) 0%, var(--ciet-tech-red) 50%, var(--ciet-electric-orange) 100%);
 }
 
 .final-cta__content {
@@ -1580,7 +1580,7 @@ select.form-control {
 }
 
 .footer__section h4 {
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   margin-bottom: var(--space-16);
 }
 
@@ -1605,7 +1605,7 @@ select.form-control {
 }
 
 .footer__links a:hover {
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
 }
 
 .footer__certifications li,
@@ -1620,7 +1620,7 @@ select.form-control {
 }
 
 .footer__address a {
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
   text-decoration: none;
 }
 
@@ -1633,7 +1633,7 @@ select.form-control {
 
 /* Button Overrides for CIET Theme */
 .btn--primary {
-  background: var(--ciet-tech-blue);
+  background: var(--ciet-tech-red);
   color: white;
   border: none;
 }
@@ -1650,7 +1650,7 @@ select.form-control {
 
 .btn--outline:hover {
   background: white;
-  color: var(--ciet-tech-blue);
+  color: var(--ciet-tech-red);
 }
 
 /* Responsive Design */
