@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>CIET - Consortium for Innovators in Engineering & Technology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -41,6 +42,15 @@
         }
 
 
+        #bg{
+            background-image: url("pattern.jpg");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: contain;
+            filter: blur(10px);
+        }
+
+
         #Premier { 
             background-image: url("PremierbgImg.jpg");
             background-position: center;
@@ -53,7 +63,30 @@
 
 
 
+        .pattern-container {
+            position: absolute;
+            right: -100px;
+            bottom: -20;
+            width: 50%;  /* adjust to your hero width */
+            height: 100%;
+            pointer-events: none;
+        }
 
+        .pattern-square {
+            position: absolute;
+            background: #a3a3a3e7;  /* electric orange/red */
+        }
+        .pattern-square.large { width: 120px; height: 120px; top: 30%; right: 15%; border-radius: 12px; }
+        .pattern-square.medium { width: 60px; height: 60px; border-radius: 8px; }
+        .pattern-square.small { width: 30px; height: 30px; border-radius: 4px; }
+
+        .pattern-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #a3a3a3e7;
+            border-radius: 50%;
+        }
 
     </style>
 </head>
@@ -109,75 +142,145 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="py-12 md:py-20 relative"> 
-        <img src="gear5th.png" class="-left-48 h-[90vh] absolute" alt="">
-        <!-- <img src="circuitImg.png" class="top-0 right-0 h-[90vh] -bottom-96 absolute" alt=""> -->
+    <section class="py-12 md:py-20 relative">
+        <img  src="gear5th.png" class="-left-48 h-[90vh] absolute" alt="">
+        <div class="pattern-container">
+            <!-- Large square -->
+            <div class="pattern-square large"></div>
+            <!-- Medium squares -->
+            <div class="pattern-square medium top-[16%] right-[25%]"></div>
+            <div class="pattern-square medium top-[60%] right-[10%]"></div>
+            <!-- Small squares -->
+            <div class="pattern-square small top-[80%] right-[30%]"></div>
+            <div class="pattern-square small top-[70%] right-[25%]"></div>
+            <!-- Dots -->
+            <div class="pattern-dot top-[15%] right-[15%]"></div>
+            <div class="pattern-dot top-[40%] right-[8%]"></div>
+            <div class="pattern-dot top-[75%] right-[18%]"></div>
+        </div>
+
         <div class="relative z-20 container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-8 items-center justify-between">
-                <div>
+                <div class="flex">
                     <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight">
-                    <span class="flex items-center gap-4">
-                        Where Engineering Brilliance Meets  
-                    </span>
-                    <span class="flex items-center gap-4">
-                        Technological <br>
-
-                        <!-- Red background container expands naturally -->
-                        <span id="bgBox"
-                        class="rounded-2xl py-3 px-6 bg-red-600 text-white text-6xl inline-flex justify-center items-center whitespace-nowrap transition-all duration-500 ease-in-out">
-                        <span id="changingWord" class="inline-block"></span>
+                        <span class="flex items-center gap-4">
+                            Where Engineering Brilliance Meets  
                         </span>
-                    </span>
+                        <span class="flex items-center gap-4">
+                            Technological <br>
+                            <span id="bgBox" class="rounded-2xl py-3 px-6 bg-red-600 text-white text-6xl inline-flex justify-center items-center whitespace-nowrap transition-all duration-500 ease-in-out">
+                                <span id="changingWord" class="inline-block">Innovation</span>
+                            </span>
+                        </span>
                     </h1>
                 </div>
-                <div class="space-y-4 text-right">
-                    <p class="text-gray-600 text-right">Connect with 40,000+ engineers, researchers, and technology leaders <br> driving innovation across aerospace, biomedical, sustainable energy, <br> AI, and emerging technologies globally.</p>
+                
+                <div class="space-y-4 text-right relative z-20">
+                    <p class="text-gray-600">Connect with 40,000+ engineers, researchers, and technology leaders <br> driving innovation across aerospace, biomedical, sustainable energy, <br> AI, and emerging technologies globally.</p>
                     <div class="text-red-600 font-bold text-5xl">10k+ 
                         <span class="text-gray-500 text-lg block font-semibold">Happy Innovators</span>
                     </div>
                 </div>
             </div>
 
-            <div id="dynamicGrid" 
-                class="mt-12 flex gap-4 h-[30rem] overflow-hidden transition-all duration-700 ease-in-out bg-white">
-                
-                <!-- Card 1 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="heroImg1.jpg" 
-                        alt="Quantum-Enhanced Medical Imaging research facility" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Breakthrough Innovation</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">Where impossible becomes reality</p>
+            <div id="dynamicGrid" class="mt-12 flex h-[30rem] overflow-hidden transition-all duration-700 ease-in-out">
+                <!-- Combined Card (Card 1 + Card 2) -->
+                <div class="card relative flex-1 rounded-lg overflow-hidden transition-all duration-700 ease-in-out cursor-pointer">
+                    <div class="grid grid-cols-2 gap-4 h-full p-4">
+                        <!-- Internal Card 1: Collaborative Innovation -->
+                        <div class="relative rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out group">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" 
+                                alt="Collaborative Innovation" 
+                                class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-700 ease-in-out pointer-events-none"></div>
+                            <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0">
+                                <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white group-hover:opacity-100 group-hover:translate-y-0">Collaborative Innovation</h3>
+                                <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90 group-hover:opacity-100 group-hover:translate-y-0">Where impossible becomes reality</p>
+                            </div>
+                        </div>
+
+                        <!-- Internal Card 2: Global Network -->
+                        <div class="relative rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out group">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" 
+                                alt="Global Network" 
+                                class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-700 ease-in-out pointer-events-none"></div>
+                            <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:translate-y-0">
+                                <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white group-hover:opacity-100 group-hover:translate-y-0">Global Network</h3>
+                                <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90 group-hover:opacity-100 group-hover:translate-y-0">40,000+ Professionals</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="heroImg2.jpg" 
-                        alt="CIET engineers collaborating globally" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Global Network</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">40,000+ Professionals</p>
-                    </div>
-                </div>
+                <!-- Card 3: Mission and Vision Section -->
+                <div class="card relative flex-1 flex flex-col rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
+                    <div class="grid grid-cols-1 gap-4 p-4 h-full">
+                        <!-- Our Vision -->
+                        <div class="group relative rounded-full border-2 border-red-100/0 overflow-hidden h-full hover:border-red-100">
+                            <div class="absolute inset-0 bg-gray-400/10"></div>
+                            
+                            <!-- Large clipped text -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h2 class="text-9xl font-black uppercase tracking-tight bg-clip-text text-transparent bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200')] bg-cover bg-center" style="background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Vision
+                                </h2>
+                            </div>
+                            
+                            <!-- Hover details overlay -->
+                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-95 transition-opacity duration-500 flex items-center justify-center p-6">
+                                <div class="text-gray-900 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-900 leading-relaxed mb-4">
+                                        To be the world's premier engineering innovation ecosystem, 
+                                        where breakthrough solutions emerge to solve humanity's greatest challenges.
+                                    </p>
+                                    <div class="text-3xl font-bold">2030</div>
+                                    <div class="text-xs opacity-80">Global Leadership Goal</div>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- Card 3 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="heroImg3.jpeg" 
-                        alt="CIET innovations solving real-world challenges" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Real-World Impact</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">2 Billion Lives Touched</p>
+                        <!-- Our Mission -->
+                        <div class="group relative rounded-full border-2 border-red-100/0 overflow-hidden h-full hover:border-red-100">
+                            <div class="absolute inset-0 bg-gray-400/10"></div>
+                            
+                            <!-- Large clipped text -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h2 class="text-9xl font-black uppercase tracking-tight bg-clip-text text-transparent bg-[url('https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200')] bg-cover bg-center" style="background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                    Mission
+                                </h2>
+                            </div>
+                            
+                            <!-- Hover details overlay -->
+                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-95 transition-opacity duration-500 flex items-center justify-center p-6">
+                                <div class="text-gray-900 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-900 leading-relaxed mb-4">
+                                        To accelerate technological advancement by connecting visionary engineers with cutting-edge resources, 
+                                        funding opportunities, and collaborative partnerships that drive innovation.
+                                    </p>
+                                    <div class="flex items-center gap-2 justify-center flex-wrap">
+                                        <span class="px-3 py-1 bg-gray-900 bg-opacity-20 rounded-full text-xs font-medium">Innovation</span>
+                                        <span class="px-3 py-1 bg-gray-900 bg-opacity-20 rounded-full text-xs font-medium">Collaboration</span>
+                                        <span class="px-3 py-1 bg-gray-900 bg-opacity-20 rounded-full text-xs font-medium">Excellence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
+            
             <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div>
                     <p class="text-4xl font-bold text-red-600">40,000+</p>
@@ -228,16 +331,16 @@
 
     <!-- Featured Breakthrough Innovations -->
     <section class="relative bg-gray-100 text-gray-900 py-20 sm:py-28">
-        <div class="absolute inset-0 bg-black/10 z-10 backdrop-blur-sm"></div>
-        <div class="absolute inset-0 top-20 bottom-20 left-20 right-20 bg-white/30 z-20 rounded-2xl"></div>
+        <div class="absolute inset-0 bg-black/0 z-10 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 top-20 bottom-20 left-20 right-20 bg-black/50 z-20 rounded-2xl"></div>
         <div id="Premier"  class="absolute inset-0 bg-red-600/30 z-0"></div>
-        <div class="relative z-20 container mx-auto px-4 md:px-6 ">
+        <div class="relative z-20 container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
-                    <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
+                    <h2 class="font-headline text-4xl text-white sm:text-5xl font-bold tracking-tight">
                         The World's Premier Engineering <span class="text-red-600">Innovation Ecosystem</span>
                     </h2>
-                    <p class="text-lg text-gray-600 leading-relaxed">
+                    <p class="text-lg text-white/90 leading-relaxed">
                         Since 1962, CIET has been the catalyst for groundbreaking engineering solutions that shape our world. Our consortium connects visionary engineers with cutting-edge resources, funding opportunities, and collaborative partnerships to accelerate technological advancement.
                     </p>
                     
@@ -264,11 +367,11 @@
                     </div>
                     
                     <div class="w-full">
-                        <div class="border-b">
+                        <div class="border-b border-white/30">
                             <h3 class="flex">
                                 <button 
                                     type="button" 
-                                    class="accordion-btn flex flex-1 items-start justify-between py-4 font-medium transition-all hover:underline text-left"
+                                    class="accordion-btn text-white text-md flex flex-1 items-start justify-between py-3 font-medium transition-all hover:underline text-left"
                                     onclick="toggleAccordion(this)"
                                 >
                                     What types of innovation projects does your company specialize in?
@@ -278,15 +381,15 @@
                                 </button>
                             </h3>
                             <div class="accordion-content">
-                                <p class="text-gray-600">We specialize in cutting-edge projects across aerospace, biomedical engineering, sustainable energy systems, artificial intelligence, robotics, and advanced materials. Our portfolio includes everything from breakthrough medical devices to next-generation aerospace components.</p>
+                                <p class="text-white/90 pb-3">We specialize in cutting-edge projects across aerospace, biomedical engineering, sustainable energy systems, artificial intelligence, robotics, and advanced materials. Our portfolio includes everything from breakthrough medical devices to next-generation aerospace components.</p>
                             </div>
                         </div>
                         
-                        <div class="border-b">
+                        <div class="border-b border-white/30">
                             <h3 class="flex">
                                 <button 
                                     type="button" 
-                                    class="accordion-btn flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline text-left"
+                                    class="accordion-btn flex flex-1 text-md text-white items-center justify-between py-3 font-medium transition-all hover:underline text-left"
                                     onclick="toggleAccordion(this)"
                                 >
                                     How does the partnership and collaboration process work?
@@ -296,15 +399,15 @@
                                 </button>
                             </h3>
                             <div class="accordion-content">
-                                <p class="text-gray-600">Our partnership process begins with an initial consultation to understand your goals. We then match you with relevant experts, resources, and funding opportunities. Throughout the project, you'll have access to our global network, technical facilities, and mentorship programs.</p>
+                                <p class="text-white/90 pb-3">Our partnership process begins with an initial consultation to understand your goals. We then match you with relevant experts, resources, and funding opportunities. Throughout the project, you'll have access to our global network, technical facilities, and mentorship programs.</p>
                             </div>
                         </div>
                         
-                        <div class="border-b">
+                        <div class="border-b border-white/30">
                             <h3 class="flex">
                                 <button 
                                     type="button" 
-                                    class="accordion-btn flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline text-left"
+                                    class="accordion-btn text-white text-md flex flex-1 items-center justify-between py-3 font-medium transition-all hover:underline text-left"
                                     onclick="toggleAccordion(this)"
                                 >
                                     What are the benefits of becoming a member of CIETech Nexus?
@@ -314,7 +417,7 @@
                                 </button>
                             </h3>
                             <div class="accordion-content">
-                                <p class="text-gray-600">Members gain exclusive access to our innovation labs, funding opportunities, industry conferences, and a network of 40,000+ professionals. You'll receive priority support for project proposals, access to proprietary research, and opportunities to collaborate on groundbreaking initiatives.</p>
+                                <p class="text-white/90 pb-3">Members gain exclusive access to our innovation labs, funding opportunities, industry conferences, and a network of 40,000+ professionals. You'll receive priority support for project proposals, access to proprietary research, and opportunities to collaborate on groundbreaking initiatives.</p>
                             </div>
                         </div>
                     </div>
@@ -1759,7 +1862,7 @@
     }, 3000);
     </script>
 
-    <script>
+    <!-- <script>
     const cards = document.querySelectorAll('#dynamicGrid .card');
     let activeIndex = 0;
     let isHovering = false;
@@ -1840,7 +1943,7 @@
             }, 3500);
         });
     });
-    </script>
+    </script> -->
 
 </body>
 </html>
