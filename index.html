@@ -88,6 +88,36 @@
             border-radius: 50%;
         }
 
+
+        
+
+
+        .pattern-container2 {
+            position: absolute;
+            z-index: 1;
+            left: -100px;
+            bottom: -20;
+            width: 50%;  /* adjust to your hero width */
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .pattern-square2 {
+            position: absolute;
+            background: #ffffff;  /* gray-400 */
+        }
+        .pattern-square2.large { width: 120px; height: 120px; top: 50%; right: 25%; border-radius: 12px; }
+        .pattern-square2.medium { width: 40px; height: 40px; border-radius: 8px; }
+        .pattern-square2.small { width: 30px; height: 30px; border-radius: 4px; }
+
+        .pattern-dot2 {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;  /* gray-400 */
+            border-radius: 50%;
+        }
+
     </style>
 </head>
 <body class="bg-white">
@@ -337,6 +367,7 @@
         <div class="relative z-20 container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
+                    <p class="text-sm font-semibold text-primary uppercase tracking-widest">About Us</p>
                     <h2 class="font-headline text-4xl text-white sm:text-5xl font-bold tracking-tight">
                         The World's Premier Engineering <span class="text-red-600">Innovation Ecosystem</span>
                     </h2>
@@ -427,8 +458,21 @@
     </section>
 
     <!-- Technology Transfer Success -->
-    <section class="py-20 sm:py-28 bg-red-600 text-accent-foreground">
-        <div class="container mx-auto px-4 md:px-6">
+    <section class="relative py-20 sm:py-28 bg-white text-accent-foreground overflow-hidden">
+        <div class="pattern-container2">
+            <!-- Medium squares -->
+            <div class="pattern-square2 medium top-[30%] left-[15%]"></div>
+            <div class="pattern-square2 medium top-[60%] left-[10%]"></div>
+            <!-- Small squares -->
+            <div class="pattern-square2 small top-[80%] left-[30%]"></div>
+            <div class="pattern-square2 small top-[70%] left-[25%]"></div>
+            <!-- Dots -->
+            <div class="pattern-dot2 top-[15%] left-[15%]"></div>
+            <div class="pattern-dot2 top-[40%] left-[8%]"></div>
+            <div class="pattern-dot2 top-[75%] left-[18%]"></div>
+        </div>
+        <div class="inset-0 absolute bg-red-600/80 top-0 bottom-0"></div>
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-white font-headline text-4xl sm:text-5xl font-bold tracking-tight">
@@ -455,7 +499,7 @@
                 <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-lg rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                     <div class="overflow-hidden aspect-video relative">
                         <img
-                            src="https://picsum.photos/seed/ciet-quantum-red/600/400"
+                            src="Quantum-Enhanced-Imaging.png"
                             alt="Quantum-Enhanced Imaging"
                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
                         />
@@ -474,7 +518,7 @@
                 <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-lg rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                     <div class="overflow-hidden aspect-video relative">
                         <img
-                            src="https://picsum.photos/seed/ciet-concrete-red/600/400"
+                            src="Self-HealingMaterial.jpg"
                             alt="Self-Healing Materials"
                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
                         />
@@ -497,8 +541,9 @@
         <div class="container mx-auto px-4 md:px-6">
             <!-- Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Research Collab</p>
                 <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                    Join Global Engineering <span class="text-accent">Research Initiatives</span>
+                    Join Global Engineering <span class="text-red-600">Research Initiatives</span>
                 </h2>
             </div>
 
@@ -528,7 +573,7 @@
                             </ul>
                         </div>
 
-                        <p class="text-lg font-bold text-accent mb-2">
+                        <p class="text-lg font-bold text-red-600 mb-2">
                             Funding: $150M Multi-year Program
                         </p>
                         
@@ -550,7 +595,7 @@
                 <div class="lg:col-span-2 space-y-6">
                     <h3 class="font-headline text-2xl font-bold">Funding Opportunities</h3>
                     
-                    <p class="text-2xl font-bold text-accent">$50M in 2025 funding available</p>
+                    <p class="text-2xl font-bold text-red-600">$50M in 2025 funding available</p>
                     
                     <div class="space-y-4">
                         <!-- Grant 1 -->
@@ -582,8 +627,9 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div>
+                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Professional Development</p>
                     <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        Advance Your <span class="text-accent">Engineering Career</span>
+                        Advance Your <span class="text-red-600">Engineering Career</span>
                     </h2>
                     <p class="mt-6 text-lg text-muted-foreground">
                         Gain in-demand skills with our world-class certification programs, assess your competencies, and connect with top employers.
@@ -619,7 +665,7 @@
                                 <span>•</span>
                                 <span>MIT collaboration</span>
                             </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
+                            <button class="p-0 mt-4 text-red-600 group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
                                 Learn More 
                                 <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14"></path>
@@ -640,7 +686,7 @@
                                 <span>•</span>
                                 <span>Stanford partnership</span>
                             </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
+                            <button class="p-0 mt-4 text-red-600 group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
                                 Learn More 
                                 <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14"></path>
@@ -661,7 +707,7 @@
                                 <span>•</span>
                                 <span>IBM joint program</span>
                             </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
+                            <button class="p-0 mt-4 text-red-600 group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
                                 Learn More 
                                 <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14"></path>
@@ -793,8 +839,9 @@
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <!-- Header -->
             <div class="mx-auto max-w-3xl text-center mb-16">
+                <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Industrial Network</p>
                 <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                    Collaborating with <span class="text-accent">Industry Leaders</span>
+                    Collaborating with <span class="text-red-600">Industry Leaders</span>
                 </h2>
                 <p class="mt-6 text-lg text-muted-foreground">
                     Our 500+ global industry partners are integral to our ecosystem, providing expertise, resources, and pathways to commercialization.
@@ -804,7 +851,7 @@
             <div class="space-y-12">
                 <!-- Technology Giants -->
                 <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Technology Giants</h3>
+                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-red-600">Technology Giants</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
                         <div class="flex justify-center">
                             <img src="https://picsum.photos/seed/ciet-google/200/100?grayscale" alt="Google Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
@@ -826,8 +873,8 @@
 
                 <!-- Aerospace -->
                 <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Aerospace</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
+                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-red-600">Aerospace</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-12 items-center">
                         <div class="flex justify-center">
                             <img src="https://picsum.photos/seed/ciet-boeing/200/100?grayscale" alt="Boeing Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
                         </div>
@@ -845,8 +892,8 @@
 
                 <!-- Automotive -->
                 <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Automotive</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
+                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-red-600">Automotive</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-12 items-center">
                         <div class="flex justify-center">
                             <img src="https://picsum.photos/seed/ciet-ford/200/100?grayscale" alt="Ford Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
                         </div>
@@ -864,8 +911,8 @@
 
                 <!-- Energy -->
                 <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Energy</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
+                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-red-600">Energy</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-12 items-center">
                         <div class="flex justify-center">
                             <img src="https://picsum.photos/seed/ciet-shell/200/100?grayscale" alt="Shell Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
                         </div>
@@ -884,7 +931,7 @@
 
             <!-- CTA Button -->
             <div class="text-center mt-20">
-                <button class="border-accent text-accent hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border bg-background h-11 px-8">
+                <button class="border-gray-300 text-red-600 hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border bg-background h-11 px-8">
                     View Partnership Opportunities
                 </button>
             </div>
@@ -897,8 +944,9 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div>
+                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Start-up Incubator</p>
                     <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        CIET <span class="text-accent">Innovation Accelerator</span>
+                        CIET <span class="text-red-600">Innovation Accelerator</span>
                     </h2>
                     <p class="mt-4 text-lg text-muted-foreground">
                         Our startup incubator is designed to launch the next generation of deep-tech companies.
@@ -908,7 +956,7 @@
                     <div class="mt-8 grid grid-cols-2 gap-6">
                         <!-- Feature 1: Initial Funding -->
                         <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-8 w-8 text-gray-400 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" x2="12" y1="2" y2="22"></line>
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
@@ -920,7 +968,7 @@
 
                         <!-- Feature 2: Expert Mentorship -->
                         <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-8 w-8 text-gray-400 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -934,7 +982,7 @@
 
                         <!-- Feature 3: Technical Resources -->
                         <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-8 w-8 text-gray-400 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="18" height="18" x="3" y="3" rx="2"></rect>
                                 <path d="M7 12h4"></path>
                                 <path d="M10 9v6"></path>
@@ -950,7 +998,7 @@
 
                         <!-- Feature 4: Market Access -->
                         <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-8 w-8 text-gray-400 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="13 17 18 12 13 7"></polyline>
                                 <polyline points="6 17 11 12 6 7"></polyline>
                             </svg>
@@ -978,7 +1026,7 @@
                     <!-- Deadline -->
                     <div class="text-center">
                         <p class="text-muted-foreground">Next Cohort Application Deadline</p>
-                        <p class="text-4xl font-bold text-accent font-headline">January 15, 2026</p>
+                        <p class="text-4xl font-bold text-red-600 font-headline">January 15, 2026</p>
                     </div>
 
                     <!-- Stats Grid -->
@@ -1003,9 +1051,10 @@
     </section>
 
     <!-- Upcoming Major Events -->
-    <section class="py-20 sm:py-28 bg-red-50 text-gray-900">
+    <section class="py-20 sm:py-28 bg-red-50/80 text-gray-900">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center max-w-4xl mx-auto mb-16">
+                <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Events</p>
                 <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
                     Connect at Engineering's Biggest <span class="text-red-600">Gatherings</span>
                 </h2>
@@ -1015,7 +1064,7 @@
                 <!-- Featured Event Card -->
                 <div class="h-full overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm group flex flex-col">
                     <div class="relative aspect-video overflow-hidden">
-                        <img src="https://picsum.photos/seed/ciet-summit-light/800/600" 
+                        <img src="engineeringarchitecture.jpg" 
                              alt="Large conference hall for the Global Engineering Innovation Summit" 
                              class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -1100,6 +1149,7 @@
         />
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="mx-auto max-w-3xl text-center">
+                <p class="text-sm font-semibold text-primary uppercase tracking-widest">Membership</p>
                 <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
                     Join the World's Most Innovative Engineering Community
                 </h2>
@@ -1232,11 +1282,11 @@
     </section>
 
     <!-- Service offerings CTA -->
-    <section class="py-20 sm:py-28 bg-gray-400/60 text-foreground">
+    <!-- <section class="py-20 sm:py-28 bg-gray-400/60 text-foreground">
         <div class="container mx-auto px-4 md:px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
                 <div>
+                    <p class="text-sm font-semibold text-primary uppercase tracking-widest">Services</p>
                     <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
                         Get Ready For Our Comprehensive Service Offerings
                     </h2>
@@ -1248,9 +1298,7 @@
                     </button>
                 </div>
 
-                <!-- Right Image Grid -->
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- Image 1 -->
                     <div class="relative aspect-square rounded-lg overflow-hidden group">
                         <img
                             src="https://picsum.photos/seed/ciet-quantum-red/600/400"
@@ -1259,7 +1307,6 @@
                         />
                     </div>
 
-                    <!-- Image 2 -->
                     <div class="relative aspect-square rounded-lg overflow-hidden group">
                         <img
                             src="https://picsum.photos/seed/ciet-concrete-red/600/400"
@@ -1268,7 +1315,6 @@
                         />
                     </div>
 
-                    <!-- Image 3 -->
                     <div class="relative aspect-square rounded-lg overflow-hidden group">
                         <img
                             src="https://picsum.photos/seed/ciet-aviation-red/600/400"
@@ -1277,7 +1323,6 @@
                         />
                     </div>
 
-                    <!-- Image 4 -->
                     <div class="relative aspect-square rounded-lg overflow-hidden group">
                         <img
                             src="https://picsum.photos/seed/ciet-about-pro/1200/800"
@@ -1288,7 +1333,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Latest news -->
     <section class="py-20 sm:py-28 bg-background text-foreground">
