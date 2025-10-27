@@ -3,360 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIET Services</title>
+    <title>CIET Research Collaborations</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes float {
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float-up {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
+            50% { transform: translateY(-10px); }
         }
 
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
 
-        .float-delay-1 { animation-delay: 0s; }
-        .float-delay-2 { animation-delay: 1s; }
-        .float-delay-3 { animation-delay: 2s; }
-        .float-delay-4 { animation-delay: 3s; }
-
-        .service-card {
-            backdrop-filter: blur(10px);
-            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(30,30,30,0.4) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
         }
 
-        .service-card:hover {
+        .float-card {
+            animation: float-up 4s ease-in-out infinite;
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
             transform: translateY(-8px);
-            border-color: rgba(220, 38, 38, 0.5);
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(30,30,30,0.6) 100%);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
         }
 
-        .icon-wrapper {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            animation: pulse-glow 3s ease-in-out infinite;
+        .image-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(220,38,38,0.3) 100%);
         }
 
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(220, 38, 38, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(220, 38, 38, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: grid-scroll 20s linear infinite;
-        }
-
-        @keyframes grid-scroll {
-            0% { background-position: 0 0; }
-            100% { background-position: 50px 50px; }
-        }
-
-        .stat-number {
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .badge-glow {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
         }
     </style>
 </head>
-<body class="bg-black">
-    <section class="relative z-10 py-24 sm:py-32 overflow-hidden">
-        <!-- Animated background grid -->
-        <div class="absolute inset-0 grid-pattern opacity-20"></div>
-        
-        <!-- Gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+<body class="bg-black text-white">
+    <section class="py-20 sm:py-28 relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-red-600 rounded-full blur-3xl opacity-20"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-600 rounded-full blur-3xl opacity-20"></div>
+        </div>
 
-        <div class="relative z-10 container mx-auto px-4 md:px-6">
-            <!-- Header Section -->
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-600/20 to-red-800/20 border border-red-600/30 mb-6">
-                    <div class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
-                    <span class="text-sm font-semibold text-red-500 uppercase tracking-wider">Our Services</span>
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <!-- Header -->
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-600/20 to-orange-600/20 border border-red-600/30 mb-6 badge-glow">
+                    <div class="relative">
+                        <div class="w-2 h-2 rounded-full bg-red-600"></div>
+                        <div class="absolute inset-0 w-2 h-2 rounded-full bg-red-600 pulse-ring"></div>
+                    </div>
+                    <span class="text-sm font-semibold text-red-500 uppercase tracking-wider">Research Collaborations</span>
                 </div>
                 
-                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                    Engineering the
-                    <span class="block mt-2 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
-                        Future of Innovation
+                <h2 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
+                    Join Global Engineering
+                    <span class="block mt-2 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent gradient-animate">
+                        Research Initiatives
                     </span>
                 </h2>
                 
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    We partner with visionary organizations to transform breakthrough ideas into reality through cutting-edge engineering solutions and collaborative innovation.
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    Collaborate with leading institutions worldwide to solve tomorrow's engineering challenges
                 </p>
             </div>
 
-            <!-- Stats Section -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
-                    <div class="text-4xl font-bold stat-number mb-2">500+</div>
-                    <div class="text-gray-400 text-sm">Projects Delivered</div>
+            <!-- Main Content Grid -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <!-- Featured Initiative -->
+                <div class="lg:col-span-2 glass-effect rounded-2xl overflow-hidden hover-lift">
+                    <!-- Image Section -->
+                    <div class="relative h-80 overflow-hidden">
+                        <img
+                            src="https://picsum.photos/seed/smart-city-future/1200/600"
+                            alt="Futuristic smart city with interconnected infrastructure"
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute top-6 right-6">
+                            <span class="px-4 py-2 rounded-full bg-red-600 text-white text-sm font-semibold shadow-xl">
+                                Featured
+                            </span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="text-3xl font-bold text-white mb-3">
+                                Sustainable Smart Cities Initiative
+                            </h3>
+                            <div class="flex flex-wrap items-center gap-4 text-white/90 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+                                    </svg>
+                                    <span>35+ Partners</span>
+                                </div>
+                                <span>•</span>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span>$150M Funding</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="p-8">
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div class="p-3 rounded-lg bg-gradient-to-br from-red-600/20 to-transparent border border-red-600/30 text-center">
+                                <div class="text-xs text-red-400 mb-1">Focus</div>
+                                <div class="font-semibold text-sm">IoT Integration</div>
+                            </div>
+                            <div class="p-3 rounded-lg bg-gradient-to-br from-orange-600/20 to-transparent border border-orange-600/30 text-center">
+                                <div class="text-xs text-orange-400 mb-1">Focus</div>
+                                <div class="font-semibold text-sm">Energy Mgmt</div>
+                            </div>
+                            <div class="p-3 rounded-lg bg-gradient-to-br from-red-600/20 to-transparent border border-red-600/30 text-center">
+                                <div class="text-xs text-red-400 mb-1">Focus</div>
+                                <div class="font-semibold text-sm">Transportation</div>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Multi-year research program bringing together universities, corporations, and cities to develop next-generation urban infrastructure solutions.
+                        </p>
+
+                        <button class="w-full px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-xl flex items-center justify-center gap-2 group">
+                            Learn More
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
-                    <div class="text-4xl font-bold stat-number mb-2">50+</div>
-                    <div class="text-gray-400 text-sm">Industry Partners</div>
-                </div>
-                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
-                    <div class="text-4xl font-bold stat-number mb-2">15+</div>
-                    <div class="text-gray-400 text-sm">Years Experience</div>
-                </div>
-                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
-                    <div class="text-4xl font-bold stat-number mb-2">98%</div>
-                    <div class="text-gray-400 text-sm">Client Satisfaction</div>
+
+                <!-- Funding Highlights -->
+                <div class="space-y-6">
+                    <div class="glass-effect rounded-2xl p-8 float-card">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-red-600 to-orange-600">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">2025 Funding</div>
+                                <h3 class="text-2xl font-bold">$50M Available</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            <!-- Grant 1 -->
+                            <div class="p-4 rounded-xl bg-gradient-to-br from-red-600/10 to-transparent border border-red-600/20 hover:border-red-600/40 transition-all cursor-pointer">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-semibold">Innovation Grants</h4>
+                                    <span class="text-red-500 font-bold text-sm">$2M</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Breakthrough research funding</p>
+                            </div>
+
+                            <!-- Grant 2 -->
+                            <div class="p-4 rounded-xl bg-gradient-to-br from-orange-600/10 to-transparent border border-orange-600/20 hover:border-orange-600/40 transition-all cursor-pointer">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-semibold">Industry Partners</h4>
+                                    <span class="text-orange-500 font-bold text-sm">Matching</span>
+                                </div>
+                                <p class="text-xs text-gray-400">Corporate collaboration fund</p>
+                            </div>
+
+                            <!-- Grant 3 -->
+                            <div class="p-4 rounded-xl bg-gradient-to-br from-red-600/10 to-transparent border border-red-600/20 hover:border-red-600/40 transition-all cursor-pointer">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-semibold">Young Innovators</h4>
+                                    <span class="text-red-500 font-bold text-sm">$100K</span>
+                                </div>
+                                <p class="text-xs text-gray-400">For engineers under 35</p>
+                            </div>
+                        </div>
+
+                        <button class="w-full px-6 py-3 bg-transparent border-2 border-red-600 text-red-500 rounded-xl font-semibold hover:bg-red-600 hover:text-white transition-all">
+                            View All Programs
+                        </button>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-effect rounded-xl p-5 text-center">
+                            <div class="text-3xl font-bold text-red-500 mb-1">200+</div>
+                            <div class="text-xs text-gray-400">Active Projects</div>
+                        </div>
+                        <div class="glass-effect rounded-xl p-5 text-center">
+                            <div class="text-3xl font-bold text-red-500 mb-1">50+</div>
+                            <div class="text-xs text-gray-400">Countries</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Services Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Service Card 1 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-1">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Research & Development</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Pioneering next-generation technologies through collaborative research, prototyping, and innovation labs focused on solving complex engineering challenges.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-2">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Advanced Materials</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Developing revolutionary materials with enhanced properties for aerospace, construction, and industrial applications through cutting-edge material science.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-3">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Smart Systems</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Designing intelligent automation and IoT solutions that optimize performance, reduce costs, and enable data-driven decision making across industries.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-4">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Sustainable Energy</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Engineering renewable energy solutions and green technologies that power tomorrow while preserving our planet for future generations.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-1">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Technical Consulting</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Expert guidance on complex engineering projects, feasibility studies, and strategic technology roadmaps to accelerate your innovation journey.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="service-card rounded-2xl p-8 float-animation float-delay-2">
-                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Training & Development</h3>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Empowering engineering professionals through specialized training programs, workshops, and knowledge-sharing initiatives on emerging technologies.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="relative rounded-3xl overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-90"></div>
-                <div class="absolute inset-0 grid-pattern opacity-20"></div>
-                <div class="relative z-10 px-8 py-16 md:py-20 text-center">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Ready to Transform Your Vision into Reality?
-                    </h3>
-                    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                        Let's collaborate to engineer innovative solutions that push the boundaries of what's possible.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
-                            Start Your Project
-                        </button>
-                        <button class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all">
-                            Schedule Consultation
-                        </button>
-                    </div>
+            <!-- Bottom CTA -->
+            <div class="glass-effect rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-3">Have a Research Idea?</h3>
+                <p class="text-gray-400 mb-6">
+                    Submit your proposal and connect with global collaborators
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105">
+                        Submit Proposal
+                    </button>
+                    <button class="px-8 py-3 bg-transparent border border-gray-600 text-white rounded-xl font-semibold hover:border-red-600 hover:text-red-500 transition-all">
+                        Browse Projects
+                    </button>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    <!-- Service Section -->
-<section class="relative z-10 py-16 sm:py-24 bg-gradient-to-b from-black/80 to-gray-900 text-white">
-  <div class="container mx-auto px-4 md:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Text Content -->
-      <div class="space-y-6">
-        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold uppercase bg-red-600/80 text-white shadow-lg shadow-red-600/30">
-          Our Services
-        </span>
-        <h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-          Pioneering <span class="text-red-600">Engineering & Technology Solutions</span>
-        </h2>
-        <p class="text-lg text-gray-300 leading-relaxed">
-          At the Consortium for Innovators in Engineering & Technology, we transform visionary ideas into reality through cutting-edge solutions. Our collaborative approach and deep expertise drive innovation across industries.
-        </p>
-        <ul class="space-y-3 text-gray-200">
-          <li class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            Quantum Computing for Advanced Applications
-          </li>
-          <li class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            Sustainable Materials & Smart Infrastructure
-          </li>
-          <li class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            Zero-Emission Aviation Technologies
-          </li>
-          <li class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            Collaborative R&D for Industry Innovation
-          </li>
-        </ul>
-        <div class="flex gap-4 mt-8">
-          <button
-            class="bg-red-600 text-white hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 transform hover:scale-105 h-11 px-8 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            aria-label="Start a project with CIET"
-          >
-            Start Your Project
-          </button>
-          <a
-            href="/case-studies"
-            class="text-red-600 hover:text-red-500 font-medium underline transition-colors"
-            aria-label="Explore CIET case studies"
-          >
-            Explore Case Studies
-          </a>
-        </div>
-      </div>
-      <!-- Image Grid -->
-      <div class="grid grid-cols-2 gap-4">
-        <div class="relative aspect-square rounded-lg overflow-hidden group">
-          <img
-            src="https://picsum.photos/seed/ciet-quantum-red/600/400"
-            alt="Quantum computing technology for medical advancements"
-            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-          />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <p class="text-white text-sm font-medium text-center px-2">Quantum Computing Solutions</p>
-          </div>
-        </div>
-        <div class="relative aspect-square rounded-lg overflow-hidden group">
-          <img
-            src="https://picsum.photos/seed/ciet-concrete-red/600/400"
-            alt="Self-healing materials for sustainable infrastructure"
-            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-          />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <p class="text-white text-sm font-medium text-center px-2">Sustainable Materials</p>
-          </div>
-        </div>
-        <div class="relative aspect-square rounded-lg overflow-hidden group">
-          <img
-            src="https://picsum.photos/seed/ciet-aviation-red/600/400"
-            alt="Zero-emission aircraft prototype"
-            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-          />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <p class="text-white text-sm font-medium text-center px-2">Advanced Aviation</p>
-          </div>
-        </div>
-        <div class="relative aspect-square rounded-lg overflow-hidden group">
-          <img
-            src="https://picsum.photos/seed/ciet-about-pro/1200/800"
-            alt="Collaborative engineering with holographic displays"
-            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-          />
-          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <p class="text-white text-sm font-medium text-center px-2">Collaborative R&D</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </body>
 </html>
