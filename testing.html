@@ -3,1893 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>CIET - Consortium for Innovators in Engineering & Technology</title>
+    <title>CIET Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
         
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .accordion-content.active {
-            max-height: 500px;
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
         }
 
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .animate-pulse-dot {
-            animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        /* Ultra smooth grid transitions */
-        .card {
-            transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: grid-column;
-        }
-        
-        /* Smooth title size transitions */
-        .card-title {
-            transition: font-size 800ms cubic-bezier(0.4, 0, 0.2, 1);
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
         }
 
+        .float-delay-1 { animation-delay: 0s; }
+        .float-delay-2 { animation-delay: 1s; }
+        .float-delay-3 { animation-delay: 2s; }
+        .float-delay-4 { animation-delay: 3s; }
 
-        #bg{
-            background-image: url("pattern.jpg");
-            background-repeat: no-repeat;
-            background-position: bottom;
-            background-size: contain;
-            filter: blur(10px);
+        .service-card {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(30,30,30,0.4) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-
-        #Premier { 
-            background-image: url("PremierbgImg.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            opacity: 1;
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(220, 38, 38, 0.5);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(30,30,30,0.6) 100%);
         }
 
-
-
-
-
-        .pattern-container {
-            position: absolute;
-            right: -100px;
-            bottom: -20;
-            width: 50%;  /* adjust to your hero width */
-            height: 100%;
-            pointer-events: none;
+        .icon-wrapper {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            animation: pulse-glow 3s ease-in-out infinite;
         }
 
-        .pattern-square {
-            position: absolute;
-            background: #c0c0c0;  /* electric orange/red */
-        }
-        .pattern-square.large { width: 120px; height: 120px; top: 30%; right: 15%; border-radius: 12px; }
-        .pattern-square.medium { width: 60px; height: 60px; border-radius: 8px; }
-        .pattern-square.small { width: 30px; height: 30px; border-radius: 4px; }
-
-        .pattern-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #666666;
-            border-radius: 50%;
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(220, 38, 38, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 38, 38, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-scroll 20s linear infinite;
         }
 
+        @keyframes grid-scroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        .stat-number {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
-<body class="bg-white">
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 w-full transition-colors duration-300 border-b bg-gray-100/80 border-transparent ">
-        <nav class="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 ">
-            <a href="/">
-                <div class="text-gray-900 flex align-center justify-center">
-                    <div class="flex h-full">
-                        <p class="text-3xl pr-2 font-black tracking-wider font-headline uppercase border-r-2 border-red-500">
-                            CIIET
-                        </p>
-                    </div>
-                    <div class="flex h-full">
-                        <p class="text-xs pl-2">
-                            Consortium for Innovators in <br> Engineering & Technology
-                        </p>
-                    </div>
-                </div>
-            </a>
-            
-            <div class="hidden items-center gap-8 lg:flex">
-                <a href="#" class="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">
-                    About
-                </a>
-                <a href="#" class="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">
-                    Innovations
-                </a>
-                <a href="#" class="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">
-                    Membership
-                </a>
-                <a href="#" class="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">
-                    Events
-                </a>
-                <a href="#" class="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">
-                    Partnerships
-                </a>
-            </div>
-            
-            <div class="flex items-center gap-2">
-                <button class="hidden bg-red-600 text-white hover:bg-red-700 sm:inline-flex rounded-full items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3">
-                    Explore Innovation Hub
-                </button>
-                
-                <button class="lg:hidden text-gray-700 hover:text-red-600 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-100 h-10 w-10">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="py-12 md:py-20 relative"> 
-        <div class="pattern-container">
-            <!-- Large square -->
-            <div class="pattern-square large"></div>
-            <!-- Medium squares -->
-            <div class="pattern-square medium" style="top: 16%; right: 25%;"></div>
-            <div class="pattern-square medium" style="top: 60%; right: 10%;"></div>
-            <!-- Small squares -->
-            <div class="pattern-square small" style="top: 80%; right: 30%;"></div>
-            <div class="pattern-square small" style="top: 70%; right: 25%;"></div>
-            <!-- Dots -->
-            <div class="pattern-dot" style="top: 15%; right: 15%;"></div>
-            <div class="pattern-dot" style="top: 40%; right: 8%;"></div>
-            <div class="pattern-dot" style="top: 75%; right: 18%;"></div>
-        </div>
-
+<body class="bg-black">
+    <section class="relative z-10 py-24 sm:py-32 overflow-hidden">
+        <!-- Animated background grid -->
+        <div class="absolute inset-0 grid-pattern opacity-20"></div>
         
-        <div class="absolute inset-0"></div>
-        <img  src="gear5th.png" class="-left-48 h-[90vh] absolute" alt="">
-        <!-- <img src="circuitImg.png" class="top-0 right-0 h-[90vh] -bottom-96 absolute" alt=""> -->
-        <div class="relative z-20 container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-8 items-center justify-between">
-                <div class="flex">
-                    <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight">
-                    <span class="flex items-center gap-4">
-                        Where Engineering Brilliance Meets  
-                    </span>
-                    <span class="flex items-center gap-4">
-                        Technological <br>
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
 
-                        <!-- Red background container expands naturally -->
-                        <span id="bgBox"
-                        class="rounded-2xl py-3 px-6 bg-red-600 text-white text-6xl inline-flex justify-center items-center whitespace-nowrap transition-all duration-500 ease-in-out">
-                        <span id="changingWord" class="inline-block"></span>
-                        </span>
-                    </span>
-                    </h1>
+        <div class="relative z-10 container mx-auto px-4 md:px-6">
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-600/20 to-red-800/20 border border-red-600/30 mb-6">
+                    <div class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+                    <span class="text-sm font-semibold text-red-500 uppercase tracking-wider">Our Services</span>
                 </div>
                 
-                <div class="space-y-4 text-right relative z-20">
-                    <p class="text-gray-600 text-right relative z-20">Connect with 40,000+ engineers, researchers, and technology leaders <br> driving innovation across aerospace, biomedical, sustainable energy, <br> AI, and emerging technologies globally.</p>
-                    <div class="text-red-600 font-bold text-5xl relative z-20">10k+ 
-                        <span class="text-gray-500 text-lg block font-semibold">Happy Innovators</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="dynamicGrid" class="mt-12 flex gap-4 h-[30rem] overflow-hidden transition-all duration-700 ease-in-out bg-white">
-                <!-- Card 1 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="heroImg1.jpg" 
-                        alt="Quantum-Enhanced Medical Imaging research facility" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Collaborative Innovation</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">Where impossible becomes reality</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="globalconnect.jpg" 
-                        alt="CIET engineers collaborating globally" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Global Network</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">40,000+ Professionals</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card relative flex-1 rounded-lg overflow-hidden bg-white transition-all duration-700 ease-in-out cursor-pointer">
-                    <img src="smart.jpg" 
-                        alt="CIET innovations solving real-world challenges" 
-                        class="card-img object-cover absolute h-full w-full inset-0 transition-all duration-700 ease-in-out rounded-lg">
-                    <div class="content absolute bottom-0 left-0 right-0 p-6 text-black transition-all duration-700 ease-in-out">
-                        <h3 class="text-2xl font-bold mb-2 opacity-0 transform translate-y-4 transition-all duration-700 ease-in-out text-white">Real-World Impact</h3>
-                        <p class="text-sm opacity-0 transform translate-y-4 hidden md:block transition-all duration-700 ease-in-out delay-100 text-white/90">2 Billion Lives Touched</p>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div>
-                    <p class="text-4xl font-bold text-red-600">40,000+</p>
-                    <p class="text-gray-600 mt-1">Active Professionals</p>
-                </div>
-                <div>
-                    <p class="text-4xl font-bold text-red-600">2,800+</p>
-                    <p class="text-gray-600 mt-1">Innovation Projects</p>
-                </div>
-                <div>
-                    <p class="text-4xl font-bold text-red-600">500+</p>
-                    <p class="text-gray-600 mt-1">Partner Companies</p>
-                </div>
-                <div>
-                    <p class="text-4xl font-bold text-red-600">98%</p>
-                    <p class="text-gray-600 mt-1">Successful Tech Transfers</p>
-                </div>
-            </div>
-
-            <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                    </svg>
-                    Explore Innovations
-                </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                    </svg>
-                    Submit a Project
-                </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    Become a Partner
-                </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 border border-gray-300 bg-white hover:bg-red-50 p-6 text-base">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    Join Network
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Breakthrough Innovations -->
-    <section class="relative bg-gray-100 text-gray-900 py-20 sm:py-28">
-        <div class="absolute inset-0 bg-black/0 z-10 backdrop-blur-sm"></div>
-        <div class="absolute inset-0 top-20 bottom-20 left-20 right-20 bg-black/50 z-20 rounded-2xl"></div>
-        <div id="Premier"  class="absolute inset-0 bg-red-600/30 z-0"></div>
-        <div class="relative z-20 container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div class="space-y-6">
-                    <h2 class="font-headline text-4xl text-white sm:text-5xl font-bold tracking-tight">
-                        The World's Premier Engineering <span class="text-red-600">Innovation Ecosystem</span>
-                    </h2>
-                    <p class="text-lg text-white/90 leading-relaxed">
-                        Since 1962, CIET has been the catalyst for groundbreaking engineering solutions that shape our world. Our consortium connects visionary engineers with cutting-edge resources, funding opportunities, and collaborative partnerships to accelerate technological advancement.
-                    </p>
-                    
-                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 shadow-lg group">
-                        <img
-                            src="networkwithworld.jpg"
-                            alt="A construction worker using a grinder, creating sparks."
-                            class="object-cover group-hover:scale-105 transition-transform duration-500 absolute h-full w-full inset-0"
-                            data-ai-hint="construction worker"
-                        />
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
-                    </div>
-                </div>
+                <h2 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Engineering the
+                    <span class="block mt-2 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
+                        Future of Innovation
+                    </span>
+                </h2>
                 
-                <div class="space-y-6">
-                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 shadow-lg group">
-                        <img
-                            src="second2.jpg"
-                            alt="A multi-story building under construction."
-                            class="object-cover group-hover:scale-105 transition-transform duration-500 absolute h-full w-full inset-0"
-                            data-ai-hint="building construction"
-                        />
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
-                    </div>
-                    
-                    <div class="w-full">
-                        <div class="border-b border-white/30">
-                            <h3 class="flex">
-                                <button 
-                                    type="button" 
-                                    class="accordion-btn text-white text-md flex flex-1 items-start justify-between py-3 font-medium transition-all hover:underline text-left"
-                                    onclick="toggleAccordion(this)"
-                                >
-                                    What types of innovation projects does your company specialize in?
-                                    <svg class="accordion-icon h-4 w-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                            </h3>
-                            <div class="accordion-content">
-                                <p class="text-white/90 pb-3">We specialize in cutting-edge projects across aerospace, biomedical engineering, sustainable energy systems, artificial intelligence, robotics, and advanced materials. Our portfolio includes everything from breakthrough medical devices to next-generation aerospace components.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="border-b border-white/30">
-                            <h3 class="flex">
-                                <button 
-                                    type="button" 
-                                    class="accordion-btn flex flex-1 text-md text-white items-center justify-between py-3 font-medium transition-all hover:underline text-left"
-                                    onclick="toggleAccordion(this)"
-                                >
-                                    How does the partnership and collaboration process work?
-                                    <svg class="accordion-icon h-4 w-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                            </h3>
-                            <div class="accordion-content">
-                                <p class="text-white/90 pb-3">Our partnership process begins with an initial consultation to understand your goals. We then match you with relevant experts, resources, and funding opportunities. Throughout the project, you'll have access to our global network, technical facilities, and mentorship programs.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="border-b border-white/30">
-                            <h3 class="flex">
-                                <button 
-                                    type="button" 
-                                    class="accordion-btn text-white text-md flex flex-1 items-center justify-between py-3 font-medium transition-all hover:underline text-left"
-                                    onclick="toggleAccordion(this)"
-                                >
-                                    What are the benefits of becoming a member of CIETech Nexus?
-                                    <svg class="accordion-icon h-4 w-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </button>
-                            </h3>
-                            <div class="accordion-content">
-                                <p class="text-white/90 pb-3">Members gain exclusive access to our innovation labs, funding opportunities, industry conferences, and a network of 40,000+ professionals. You'll receive priority support for project proposals, access to proprietary research, and opportunities to collaborate on groundbreaking initiatives.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    We partner with visionary organizations to transform breakthrough ideas into reality through cutting-edge engineering solutions and collaborative innovation.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- Technology Transfer Success -->
-    <section class="py-20 sm:py-28 bg-red-600 text-accent-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-white font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        Building Tomorrow's Landmarks with Expert Precision.
-                    </h2>
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
+                    <div class="text-4xl font-bold stat-number mb-2">500+</div>
+                    <div class="text-gray-400 text-sm">Projects Delivered</div>
                 </div>
-                <div class="space-y-4">
-                    <p class="text-white/90">
-                        Our consortium has been the driving force behind some of the most significant engineering breakthroughs of the last decade. We connect visionary engineers with the resources they need to turn ambitious ideas into reality.
-                    </p>
-                    <div class="flex gap-4">
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-non bg-white text-secondary-foreground h-11 px-8">
-                            The Projects
-                        </button>
-                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-accent-foreground/50 text-white bg-accent-foreground h-11 px-8">
-                            View All
-                        </button>
-                    </div>
+                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
+                    <div class="text-4xl font-bold stat-number mb-2">50+</div>
+                    <div class="text-gray-400 text-sm">Industry Partners</div>
+                </div>
+                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
+                    <div class="text-4xl font-bold stat-number mb-2">15+</div>
+                    <div class="text-gray-400 text-sm">Years Experience</div>
+                </div>
+                <div class="text-center p-6 rounded-xl bg-black/40 border border-white/10">
+                    <div class="text-4xl font-bold stat-number mb-2">98%</div>
+                    <div class="text-gray-400 text-sm">Client Satisfaction</div>
                 </div>
             </div>
 
-            <div class="mt-16 grid gap-10 md:grid-cols-1 lg:grid-cols-2">
-                <!-- Card 1: Quantum-Enhanced Imaging -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-lg rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img
-                            src="https://picsum.photos/seed/ciet-quantum-red/600/400"
-                            alt="Quantum-Enhanced Imaging"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 p-6 pt-0">
-                        <h3 class="text-2xl font-bold font-headline text-white mb-2">
-                            Quantum-Enhanced Imaging
-                        </h3>
-                        <p class="text-white/80 text-sm">Dr. Priya Sharma, Quantum Systems Lab</p>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Quantum-Enhanced Imaging"></a>
-                </div>
-
-                <!-- Card 2: Self-Healing Materials -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-lg rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img
-                            src="https://picsum.photos/seed/ciet-concrete-red/600/400"
-                            alt="Self-Healing Materials"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 p-6 pt-0">
-                        <h3 class="text-2xl font-bold font-headline text-white mb-2 ">
-                            Self-Healing Materials
-                        </h3>
-                        <p class="text-white/80 text-sm">MIT Advanced Materials Consortium</p>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Self-Healing Materials"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Active Research Collaborations -->
-    <section class="py-20 sm:py-28 bg-background text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <!-- Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                    Join Global Engineering <span class="text-accent">Research Initiatives</span>
-                </h2>
-            </div>
-
-            <!-- Main Grid -->
-            <div class="grid lg:grid-cols-5 gap-8">
-                <!-- Featured Initiative (Left - 3 columns) -->
-                <div class="lg:col-span-3 bg-card rounded-lg border shadow-sm">
-                    <!-- Card Header -->
-                    <div class="flex flex-col space-y-1.5 p-6">
-                        <div class="text-2xl font-semibold leading-none tracking-tight font-headline">
-                            Featured: Sustainable Smart Cities Initiative
-                        </div>
-                    </div>
-
-                    <!-- Card Content -->
-                    <div class="p-6 pt-0">
-                        <p class="text-muted-foreground mb-4">
-                            Partners: 15 Universities, 8 Corporations, 12 Cities
-                        </p>
-                        
-                        <div class="mb-6">
-                            <h4 class="font-semibold mb-2">Focus Areas:</h4>
-                            <ul class="list-disc list-inside text-muted-foreground space-y-1">
-                                <li>IoT Integration</li>
-                                <li>Energy Management</li>
-                                <li>Transportation Systems</li>
-                            </ul>
-                        </div>
-
-                        <p class="text-lg font-bold text-accent mb-2">
-                            Funding: $150M Multi-year Program
-                        </p>
-                        
-                        <p class="text-sm text-muted-foreground mb-6">
-                            Open Positions: Systems Engineers, Data Scientists, Urban Planners
-                        </p>
-
-                        <button class="bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
-                            Apply to Join Project 
-                            <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Funding Opportunities (Right - 2 columns) -->
-                <div class="lg:col-span-2 space-y-6">
-                    <h3 class="font-headline text-2xl font-bold">Funding Opportunities</h3>
-                    
-                    <p class="text-2xl font-bold text-accent">$50M in 2025 funding available</p>
-                    
-                    <div class="space-y-4">
-                        <!-- Grant 1 -->
-                        <div class="p-4 border rounded-lg bg-card">
-                            <h4 class="font-semibold">CIET Innovation Grants</h4>
-                            <p class="text-sm text-muted-foreground">Up to $2M for breakthrough research.</p>
-                        </div>
-
-                        <!-- Grant 2 -->
-                        <div class="p-4 border rounded-lg bg-card">
-                            <h4 class="font-semibold">Industry Partnership Fund</h4>
-                            <p class="text-sm text-muted-foreground">Corporate collaboration matching.</p>
-                        </div>
-
-                        <!-- Grant 3 -->
-                        <div class="p-4 border rounded-lg bg-card">
-                            <h4 class="font-semibold">Young Innovator Awards</h4>
-                            <p class="text-sm text-muted-foreground">$100K for engineers under 35.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Development -->
-    <section class="py-20 sm:py-28 bg-accent/10 text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div>
-                    <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        Advance Your <span class="text-accent">Engineering Career</span>
-                    </h2>
-                    <p class="mt-6 text-lg text-muted-foreground">
-                        Gain in-demand skills with our world-class certification programs, assess your competencies, and connect with top employers.
-                    </p>
-                    
-                    <div class="mt-8 space-y-4">
-                        <p>
-                            <strong class="text-foreground">Skills Assessment:</strong> Free engineering competency evaluation.
-                        </p>
-                        <p>
-                            <strong class="text-foreground">Career Matching:</strong> AI-powered job matching with consortium partners.
-                        </p>
-                        <p>
-                            <strong class="text-foreground">Mentorship:</strong> Connect with senior engineers and technology leaders.
-                        </p>
-                    </div>
-
-                    <button class="mt-8 bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
-                        Explore All Programs
-                    </button>
-                </div>
-
-                <!-- Right Content - Program Cards -->
-                <div class="space-y-6">
-                    <!-- Card 1: Advanced AI Systems Engineering -->
-                    <div class="group bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:border-accent transition-colors">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">
-                                Advanced AI Systems Engineering
-                            </h3>
-                            <div class="flex items-center gap-4 text-sm text-muted-foreground">
-                                <span>6 months</span>
-                                <span>•</span>
-                                <span>MIT collaboration</span>
-                            </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Sustainable Technology Leadership -->
-                    <div class="group bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:border-accent transition-colors">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">
-                                Sustainable Technology Leadership
-                            </h3>
-                            <div class="flex items-center gap-4 text-sm text-muted-foreground">
-                                <span>4 months</span>
-                                <span>•</span>
-                                <span>Stanford partnership</span>
-                            </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Quantum Computing Applications -->
-                    <div class="group bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:border-accent transition-colors">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">
-                                Quantum Computing Applications
-                            </h3>
-                            <div class="flex items-center gap-4 text-sm text-muted-foreground">
-                                <span>8 months</span>
-                                <span>•</span>
-                                <span>IBM joint program</span>
-                            </div>
-                            <button class="p-0 mt-4 text-accent group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- service -->
-    <section class="py-20 sm:py-28 bg-background text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <!-- Header -->
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <p class="text-sm font-semibold text-primary uppercase tracking-widest">Services</p>
-                <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight mt-2">
-                    Tailored Solutions to Bring Your Vision to Life
-                </h2>
-            </div>
-
-            <!-- Service Cards Grid -->
+            <!-- Services Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Card 1: Project Showcase -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/ciet-aviation-red/600/400" 
-                            alt="Project Showcase" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
+                <!-- Service Card 1 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-1">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
-                        <div>
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">Project Showcase</h3>
-                            <p class="text-muted-foreground text-sm">
-                                Explore our diverse portfolio of groundbreaking engineering projects.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <button class="p-0 text-primary group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Project Showcase"></a>
-                </div>
-
-                <!-- Card 2: Client Testimonials -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/worker/600/400" 
-                            alt="Client Testimonials" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
-                        <div>
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">Client Testimonials</h3>
-                            <p class="text-muted-foreground text-sm">
-                                See what our partners and members say about their experience with CIET.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <button class="p-0 text-primary group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Client Testimonials"></a>
-                </div>
-
-                <!-- Card 3: Contact & Inquiry -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border shadow-sm rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/construction/600/400" 
-                            alt="Contact & Inquiry" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-0">
-                        <div>
-                            <h3 class="text-xl font-bold font-headline text-foreground mb-2">Contact & Inquiry</h3>
-                            <p class="text-muted-foreground text-sm">
-                                Let's start building together. Contact us today to discuss your project needs.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <button class="p-0 text-primary group-hover:underline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                                Learn More 
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Contact & Inquiry"></a>
-                </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex justify-center gap-4">
-                <button class="bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
-                    Contact Us
-                </button>
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
-                    Browse all services
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industry Partner Network -->
-    <section class="relative py-20 sm:py-28 bg-background text-foreground">
-        <!-- Background Overlay -->
-        <div class="absolute inset-0 bg-accent/5 opacity-50"></div>
-        
-        <div class="container mx-auto px-4 md:px-6 relative z-10">
-            <!-- Header -->
-            <div class="mx-auto max-w-3xl text-center mb-16">
-                <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                    Collaborating with <span class="text-accent">Industry Leaders</span>
-                </h2>
-                <p class="mt-6 text-lg text-muted-foreground">
-                    Our 500+ global industry partners are integral to our ecosystem, providing expertise, resources, and pathways to commercialization.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <!-- Technology Giants -->
-                <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Technology Giants</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-google/200/100?grayscale" alt="Google Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-microsoft/200/100?grayscale" alt="Microsoft Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-apple/200/100?grayscale" alt="Apple Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-tesla/200/100?grayscale" alt="Tesla Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-spacex/200/100?grayscale" alt="SpaceX Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aerospace -->
-                <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Aerospace</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-boeing/200/100?grayscale" alt="Boeing Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-airbus/200/100?grayscale" alt="Airbus Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-lockheed/200/100?grayscale" alt="Lockheed Martin Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-northrop/200/100?grayscale" alt="Northrop Grumman Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Automotive -->
-                <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Automotive</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-ford/200/100?grayscale" alt="Ford Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-bmw/200/100?grayscale" alt="BMW Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-toyota/200/100?grayscale" alt="Toyota Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-mercedes/200/100?grayscale" alt="Mercedes-Benz Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Energy -->
-                <div>
-                    <h3 class="text-center font-headline text-2xl font-bold mb-8 text-accent">Energy</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-shell/200/100?grayscale" alt="Shell Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-bp/200/100?grayscale" alt="BP Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-siemens/200/100?grayscale" alt="Siemens Energy Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <img src="https://picsum.photos/seed/ciet-ge/200/100?grayscale" alt="General Electric Logo" width="120" height="40" class="object-contain aspect-[3/1] grayscale hover:grayscale-0 transition-all duration-300">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Button -->
-            <div class="text-center mt-20">
-                <button class="border-accent text-accent hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border bg-background h-11 px-8">
-                    View Partnership Opportunities
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Startup Incubator -->
-    <section class="py-20 sm:py-28 bg-background text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div>
-                    <h2 class="font-headline text-4xl sm:text-5xl font-bold tracking-tight">
-                        CIET <span class="text-accent">Innovation Accelerator</span>
-                    </h2>
-                    <p class="mt-4 text-lg text-muted-foreground">
-                        Our startup incubator is designed to launch the next generation of deep-tech companies.
+                    <h3 class="text-2xl font-bold text-white mb-4">Research & Development</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Pioneering next-generation technologies through collaborative research, prototyping, and innovation labs focused on solving complex engineering challenges.
                     </p>
-
-                    <!-- Features Grid -->
-                    <div class="mt-8 grid grid-cols-2 gap-6">
-                        <!-- Feature 1: Initial Funding -->
-                        <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" x2="12" y1="2" y2="22"></line>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">$250K Initial Funding</h3>
-                                <p class="text-muted-foreground text-sm">Plus up to $2M in follow-on investment.</p>
-                            </div>
-                        </div>
-
-                        <!-- Feature 2: Expert Mentorship -->
-                        <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Expert Mentorship</h3>
-                                <p class="text-muted-foreground text-sm">Guidance from successful engineering entrepreneurs.</p>
-                            </div>
-                        </div>
-
-                        <!-- Feature 3: Technical Resources -->
-                        <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                                <path d="M7 12h4"></path>
-                                <path d="M10 9v6"></path>
-                                <path d="M16.5 9h-3"></path>
-                                <path d="M15 12h1.5"></path>
-                                <path d="M15 15h1.5"></path>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Technical Resources</h3>
-                                <p class="text-muted-foreground text-sm">Access to labs, testing facilities, and software.</p>
-                            </div>
-                        </div>
-
-                        <!-- Feature 4: Market Access -->
-                        <div class="flex items-start gap-4">
-                            <svg class="h-8 w-8 text-accent mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="13 17 18 12 13 7"></polyline>
-                                <polyline points="6 17 11 12 6 7"></polyline>
-                            </svg>
-                            <div>
-                                <h3 class="font-semibold text-lg">Market Access</h3>
-                                <p class="text-muted-foreground text-sm">Introductions to our consortium partner network.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <div class="mt-10">
-                        <button class="bg-accent text-accent-foreground hover:bg-accent/90 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
-                            Apply to Accelerator 
-                            <svg class="ml-2 h-5 w-5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Stats Card -->
-                <div class="space-y-6 bg-card p-8 rounded-lg border">
-                    <!-- Deadline -->
-                    <div class="text-center">
-                        <p class="text-muted-foreground">Next Cohort Application Deadline</p>
-                        <p class="text-4xl font-bold text-accent font-headline">January 15, 2026</p>
-                    </div>
-
-                    <!-- Stats Grid -->
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div>
-                            <p class="text-3xl font-bold text-foreground font-headline">32</p>
-                            <p class="text-sm text-muted-foreground">Startups in Current Cohort</p>
-                        </div>
-                        <div>
-                            <p class="text-3xl font-bold text-foreground font-headline">78%</p>
-                            <p class="text-sm text-muted-foreground">Graduates Secure Series A</p>
-                        </div>
-                    </div>
-
-                    <!-- Footer Note -->
-                    <p class="text-center text-sm text-muted-foreground/50">
-                        Current cohort: deep tech, clean energy, and medical devices.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Upcoming Major Events -->
-    <section class="py-20 sm:py-28 bg-red-50 text-gray-900">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
-                    Connect at Engineering's Biggest <span class="text-red-600">Gatherings</span>
-                </h2>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8 items-stretch">
-                <!-- Featured Event Card -->
-                <div class="h-full overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm group flex flex-col">
-                    <div class="relative aspect-video overflow-hidden">
-                        <img src="https://picsum.photos/seed/ciet-summit-light/800/600" 
-                             alt="Large conference hall for the Global Engineering Innovation Summit" 
-                             class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    </div>
-                    
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div>
-                            <p class="font-semibold text-red-600">Featured Event</p>
-                            <h3 class="text-2xl font-bold mt-2">Global Engineering Innovation Summit 2026</h3>
-                            <p class="text-gray-600 mt-2">Focus: AI, Quantum Computing, Sustainable Technology, Space Engineering</p>
-                            
-                            <div class="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-gray-600 text-sm">
-                                <div class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M8 2v4"></path>
-                                        <path d="M16 2v4"></path>
-                                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-                                        <path d="M3 10h18"></path>
-                                    </svg>
-                                    <span>March 15-18, 2026</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span>San Francisco, CA</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                    <span>15,000+ Attendees</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-auto pt-6">
-                            <button class="w-full sm:w-auto bg-red-600 text-white hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-10 px-4 py-2">
-                                Register Now (Save $500)
-                                <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- More Events List -->
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold">More Upcoming Events</h3>
-                    
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
-                        <p class="font-semibold text-gray-900 text-lg">Young Engineers Conference</p>
-                        <p class="text-sm text-gray-600 mt-1">January 22-24, 2026 • Virtual</p>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
-                        <p class="font-semibold text-gray-900 text-lg">Quantum Technology Workshop</p>
-                        <p class="text-sm text-gray-600 mt-1">February 10-12, 2026 • Boston</p>
-                    </div>
-                    
-                    <div class="p-4 rounded-lg border border-gray-200 bg-white hover:border-red-400 transition-colors">
-                        <p class="font-semibold text-gray-900 text-lg">Sustainable Engineering Forum</p>
-                        <p class="text-sm text-gray-600 mt-1">April 8-10, 2026 • Copenhagen</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Membership Benefits -->
-    <section class="relative bg-white py-20 sm:py-28 text-gray-900">
-        <img
-            src="https://picsum.photos/seed/ciet-membership-light/1920/1080"
-            alt="Geometric pattern background"
-            class="absolute inset-0 w-full h-full object-cover opacity-5"
-        />
-        <div class="container mx-auto px-4 md:px-6 relative z-10">
-            <div class="mx-auto max-w-3xl text-center">
-                <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
-                    Join the World's Most Innovative Engineering Community
-                </h2>
-                <p class="mt-6 text-lg text-gray-600">
-                    Unlock exclusive access to resources, talent, and opportunities. Choose the plan that's right for you.
-                </p>
-            </div>
-
-            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-center">
-                <!-- Individual Plan -->
-                <div class="flex flex-col bg-white border border-gray-200 transition-all duration-300 rounded-xl hover:scale-105 hover:border-red-600">
-                    <div class="text-center pt-8 p-6">
-                        <div class="text-2xl font-semibold">Individual</div>
-                        <div class="mt-2 text-gray-600 px-4 text-sm">For professionals advancing their career and network.</div>
-                    </div>
-                    <div class="flex-grow p-6 pt-0">
-                        <div class="text-center mb-8">
-                            <span class="text-5xl font-bold text-gray-900">$195</span>
-                            <span class="text-gray-600">/year</span>
-                        </div>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Access to innovation database and technical resources</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Global networking with 40,000+ professionals</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Conference discounts and priority registration</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Job board and career services</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="p-6 mt-4">
-                        <button class="w-full text-lg py-6 rounded-full bg-gray-900 hover:bg-gray-800 text-white font-medium transition-colors">
-                            Select Plan
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Corporate Plan (Featured) -->
-                <div class="flex flex-col bg-white border border-red-600 transition-all duration-300 rounded-xl ring-4 ring-red-100 shadow-2xl shadow-red-600/10 scale-105">
-                    <div class="py-2 px-4 bg-red-600 text-white text-sm font-bold text-center rounded-t-lg flex items-center justify-center gap-2">
-                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 
-                        Most Popular
-                    </div>
-                    <div class="text-center pt-8 p-6">
-                        <div class="text-2xl font-semibold">Corporate</div>
-                        <div class="mt-2 text-gray-600 px-4 text-sm">For companies seeking a competitive edge in technology and talent.</div>
-                    </div>
-                    <div class="flex-grow p-6 pt-0">
-                        <div class="text-center mb-8">
-                            <span class="text-5xl font-bold text-gray-900">$5,000</span>
-                            <span class="text-gray-600">/year</span>
-                        </div>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>All Individual benefits</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Direct access to talent pipeline and recruitment</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Early access to breakthrough technologies</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Partnership opportunities and co-innovation projects</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Custom research and development collaboration</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="p-6 mt-4">
-                        <button class="w-full text-lg py-6 rounded-full bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-600/30 font-medium transition-colors">
-                            Select Plan
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Institutional Plan -->
-                <div class="flex flex-col bg-white border border-gray-200 transition-all duration-300 rounded-xl hover:scale-105 hover:border-red-600">
-                    <div class="text-center pt-8 p-6">
-                        <div class="text-2xl font-semibold">Institutional</div>
-                        <div class="mt-2 text-gray-600 px-4 text-sm">For universities and research bodies driving foundational research.</div>
-                    </div>
-                    <div class="flex-grow p-6 pt-0">
-                        <div class="text-center mb-8">
-                            <span class="text-5xl font-bold text-gray-900">$15,000</span>
-                            <span class="text-gray-600">/year</span>
-                        </div>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>All Corporate benefits</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Student member portal (up to 500 students)</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Exclusive research collaboration opportunities</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="h-5 w-5 text-red-600 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-                                <span>Technology transfer support</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="p-6 mt-4">
-                        <button class="w-full text-lg py-6 rounded-full bg-gray-900 hover:bg-gray-800 text-white font-medium transition-colors">
-                            Select Plan
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service offerings CTA -->
-    <section class="py-20 sm:py-28 bg-gray-400/60 text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div>
-                    <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                        Get Ready For Our Comprehensive Service Offerings
-                    </h2>
-                    <p class="mt-6 text-lg text-muted-foreground">
-                        Starting with professional work ethics, building relationship and providing quality work is our main priority. Our design process begins with a deep-dive discovery session to understand the project's vision.
-                    </p>
-                    <button class="mt-8 bg-red-600 text-accent hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8">
-                        Get Started
-                    </button>
-                </div>
-
-                <!-- Right Image Grid -->
-                <div class="grid grid-cols-2 gap-4">
-                    <!-- Image 1 -->
-                    <div class="relative aspect-square rounded-lg overflow-hidden group">
-                        <img
-                            src="https://picsum.photos/seed/ciet-quantum-red/600/400"
-                            alt="Conceptual image of quantum computing for medical purposes"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                    </div>
-
-                    <!-- Image 2 -->
-                    <div class="relative aspect-square rounded-lg overflow-hidden group">
-                        <img
-                            src="https://picsum.photos/seed/ciet-concrete-red/600/400"
-                            alt="Close-up of a futuristic, self-healing material on a building"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                    </div>
-
-                    <!-- Image 3 -->
-                    <div class="relative aspect-square rounded-lg overflow-hidden group">
-                        <img
-                            src="https://picsum.photos/seed/ciet-aviation-red/600/400"
-                            alt="Sleek, futuristic zero-emission aircraft concept"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                    </div>
-
-                    <!-- Image 4 -->
-                    <div class="relative aspect-square rounded-lg overflow-hidden group">
-                        <img
-                            src="https://picsum.photos/seed/ciet-about-pro/1200/800"
-                            alt="Engineers collaborating in a modern facility with holographic displays"
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest news -->
-    <section class="py-20 sm:py-28 bg-background text-foreground">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex justify-between items-center mb-16">
-                <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                    Our Latest News
-                </h2>
-                <button class="hidden sm:flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
-                    View All
-                </button>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1: Quantum-Resistant Cryptography -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/ciet-quantum-red/600/400" 
-                            alt="A Framework for Quantum-Resistant Cryptography in Networked Systems" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
-                        <div>
-                            <p class="text-sm text-primary font-semibold mb-2">Cybersecurity</p>
-                            <h3 class="text-lg font-bold text-foreground mb-4">A Framework for Quantum-Resistant Cryptography in Networked Systems</h3>
-                        </div>
-                        <button class="p-0 text-muted-foreground group-hover:text-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                            Read More 
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View A Framework for Quantum-Resistant Cryptography in Networked Systems"></a>
-                </div>
-
-                <!-- Card 2: Bio-integrated Materials -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/ciet-concrete-red/600/400" 
-                            alt="Bio-integrated Materials for Self-Sustaining Urban Infrastructure" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
-                        <div>
-                            <p class="text-sm text-primary font-semibold mb-2">Materials Science</p>
-                            <h3 class="text-lg font-bold text-foreground mb-4">Bio-integrated Materials for Self-Sustaining Urban Infrastructure</h3>
-                        </div>
-                        <button class="p-0 text-muted-foreground group-hover:text-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                            Read More 
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View Bio-integrated Materials for Self-Sustaining Urban Infrastructure"></a>
-                </div>
-
-                <!-- Card 3: Hydrogen Fuel Cells -->
-                <div class="group relative flex flex-col bg-card text-card-foreground border-none shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
-                    <div class="overflow-hidden aspect-video relative">
-                        <img 
-                            src="https://picsum.photos/seed/ciet-aviation-red/600/400" 
-                            alt="High-Efficiency Hydrogen Fuel Cells for Commercial Aviation" 
-                            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
-                        >
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between pt-3">
-                        <div>
-                            <p class="text-sm text-primary font-semibold mb-2">Aerospace</p>
-                            <h3 class="text-lg font-bold text-foreground mb-4">High-Efficiency Hydrogen Fuel Cells for Commercial Aviation</h3>
-                        </div>
-                        <button class="p-0 text-muted-foreground group-hover:text-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline">
-                            Read More 
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="#" class="absolute inset-0" aria-label="View High-Efficiency Hydrogen Fuel Cells for Commercial Aviation"></a>
-                </div>
-            </div>
-
-            <!-- Mobile View All Button -->
-            <div class="mt-16 text-center sm:hidden">
-                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8">
-                    View All
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join team  -->
-    <!-- <section class="relative py-20 sm:py-28 bg-red-50 text-gray-900">
-        <img
-            src="https://picsum.photos/seed/ciet-careers-bg/1920/1080"
-            alt="A team of engineers working in a modern, sunlit office"
-            class="absolute inset-0 w-full h-full object-cover opacity-5"
-        />
-        <div class="container mx-auto px-4 md:px-6 relative z-10">
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">
-                   Join a Team of <span class="text-red-600">World-Class Innovators</span>
-                </h2>
-                <p class="mt-6 text-lg text-gray-600">
-                    We are looking for brilliant minds to help us solve the world's most complex engineering challenges. Explore a career with CIETech Nexus.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Senior AI Researcher</h3>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 6h12v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6Z"></path>
-                                    <path d="M5 12V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"></path>
-                                    <path d="M8 12h8"></path>
-                                    <path d="M12 12v8"></path>
-                                </svg> 
-                                Advanced AI Labs
-                            </span>
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg> 
-                                Silicon Valley, USA
-                            </span>
-                        </div>
-                    </div>
-                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
-                    </button>
-                </div>
-                
-                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Quantum Systems Engineer</h3>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 6h12v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6Z"></path>
-                                    <path d="M5 12V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"></path>
-                                    <path d="M8 12h8"></path>
-                                    <path d="M12 12v8"></path>
-                                </svg> 
-                                Quantum Computing Division
-                            </span>
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg> 
-                                Cambridge, UK
-                            </span>
-                        </div>
-                    </div>
-                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Sustainable Energy Analyst</h3>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 6h12v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6Z"></path>
-                                    <path d="M5 12V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"></path>
-                                    <path d="M8 12h8"></path>
-                                    <path d="M12 12v8"></path>
-                                </svg> 
-                                Clean Tech Initiatives
-                            </span>
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg> 
-                                Munich, Germany
-                            </span>
-                        </div>
-                    </div>
-                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="bg-white/80 border border-gray-200 hover:border-red-400 transition-colors flex items-center justify-between p-6 rounded-lg shadow-sm">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Lead Aerospace Engineer</h3>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 mt-2">
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 6h12v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6Z"></path>
-                                    <path d="M5 12V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"></path>
-                                    <path d="M8 12h8"></path>
-                                    <path d="M12 12v8"></path>
-                                </svg> 
-                                Next-Gen Propulsion
-                            </span>
-                            <span class="flex items-center gap-2">
-                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg> 
-                                Remote
-                            </span>
-                        </div>
-                    </div>
-                    <button class="text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors h-10 w-10 flex items-center justify-center">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div class="mt-16 text-center">
-                <button class="bg-red-600 text-white hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors h-11 px-8">
-                    View All Open Positions
-                </button>
-            </div>
-
-        </div>
-    </section> -->
-
-    <!-- CTA Section -->
-    <section class="py-20 sm:py-32 bg-gray-900 relative overflow-hidden">
-        <!-- Background Image -->
-        <img
-            src="https://picsum.photos/seed/ciet-cta-bg-pro/1920/1080"
-            alt="Futuristic tech gradient background"
-            class="object-cover opacity-20 absolute h-full w-full inset-0"
-        />
-        
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"></div>
-        
-        <!-- Content -->
-        <div class="container mx-auto px-4 md:px-6 text-center relative">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-white">
-                    Ready to Engineer the Future?
-                </h2>
-                <p class="mt-6 text-lg text-white/70">
-                    Join the global community that's solving humanity's greatest challenges through innovative engineering solutions. Our members have created technologies used by 2 billion people worldwide.
-                </p>
-                
-                <!-- CTA Buttons -->
-                <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-                    <button class="bg-red-600 text-white hover:bg-red-600/90 text-lg py-7 px-10 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-                        Become a Member
-                    </button>
-                    <button class="border-white/50 text-white hover:bg-white hover:text-black text-lg py-7 px-10 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border bg-background">
-                        Submit Your Innovation
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-primary/20 py-12 text-white">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Column 1: Brand -->
-                <div class="space-y-6">
-                    <a href="/">
-                        <div class="text-gray-900 flex align-center justify-start">
-                            <div class="flex h-full">
-                                <p class="text-3xl pr-2 text-white font-bold tracking-wider font-headline uppercase border-r-2 border-red-500">
-                                    CIIET
-                                </p>
-                            </div>
-                            <div class="flex h-full">
-                                <p class="text-xs pl-2 text-white/90">
-                                    Consortium for Innovators in <br> Engineering & Technology
-                                </p>
-                            </div>
-                        </div>
                     </a>
-                    <p class="text-sm text-white/60">
-                        2500 Innovation Drive, San Francisco, CA 94105
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-2">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Advanced Materials</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Developing revolutionary materials with enhanced properties for aerospace, construction, and industrial applications through cutting-edge material science.
                     </p>
-                    <ul class="flex align-center gap-4 justify-start">
-                        <li>Li</li>
-                        <li>You</li>
-                        <li>Ins</li>
-                        <li>Face</li>
-                    </ul>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
 
-                <!-- Column 2: Quick Links -->
-                <div>
-                    <h4 class="font-bold text-xl mb-3 text-white">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">About</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Innovations</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Research</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Events</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Partnerships</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Careers</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Startups</a></li>
-                        <li><a class="text-sm text-white/80 hover:text-red-600 transition-colors" href="#">Contact</a></li>
-                    </ul>
+                <!-- Service Card 3 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-3">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Smart Systems</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Designing intelligent automation and IoT solutions that optimize performance, reduce costs, and enable data-driven decision making across industries.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
 
-                <!-- Column 3: Global Offices -->
-                <div>
-                    <h4 class="font-bold mb-3 text-xl">Global Offices</h4>
-                    <ul class="space-y-2">
-                        <li class="text-sm text-white/80">Silicon Valley, USA</li>
-                        <li class="text-sm text-white/80">Cambridge, UK</li>
-                        <li class="text-sm text-white/80">Bangalore, India</li>
-                        <li class="text-sm text-white/80">Munich, Germany</li>
-                    </ul>
+                <!-- Service Card 4 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-4">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Sustainable Energy</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Engineering renewable energy solutions and green technologies that power tomorrow while preserving our planet for future generations.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
 
-                <!-- Column 4: Certifications -->
-                <div>
-                    <h4 class="font-bold mb-3 text-xl">Certifications</h4>
-                    <div class="flex flex-wrap gap-x-4 gap-y-2">
-                        <span class="text-xs text-white/60 bg-gray-800 px-2 py-1 rounded">IEEE Partner</span>
-                        <span class="text-xs text-white/60 bg-gray-800 px-2 py-1 rounded">ASME Affiliated</span>
-                        <span class="text-xs text-white/60 bg-gray-800 px-2 py-1 rounded">NSF Recognized</span>
-                        <span class="text-xs text-white/60 bg-gray-800 px-2 py-1 rounded">ISO Certified</span>
+                <!-- Service Card 5 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-1">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Technical Consulting</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Expert guidance on complex engineering projects, feasibility studies, and strategic technology roadmaps to accelerate your innovation journey.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card rounded-2xl p-8 float-animation float-delay-2">
+                    <div class="icon-wrapper w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Training & Development</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Empowering engineering professionals through specialized training programs, workshops, and knowledge-sharing initiatives on emerging technologies.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold group">
+                        Learn More 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="relative rounded-3xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-90"></div>
+                <div class="absolute inset-0 grid-pattern opacity-20"></div>
+                <div class="relative z-10 px-8 py-16 md:py-20 text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Ready to Transform Your Vision into Reality?
+                    </h3>
+                    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        Let's collaborate to engineer innovative solutions that push the boundaries of what's possible.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="px-8 py-4 bg-white text-red-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
+                            Start Your Project
+                        </button>
+                        <button class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all">
+                            Schedule Consultation
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="mt-12 border-t border-primary/20 pt-8 text-center text-sm text-white/90">
-                <p>&copy; 2025 Consortium for Innovators in Engineering & Technology. All rights reserved.</p>
-            </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
 
-        // Close mobile menu when clicking a link
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        const nav = document.querySelector('nav');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.classList.add('shadow-md');
-            } else {
-                nav.classList.remove('shadow-md');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-        // Counter animation for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = formatNumber(target);
-                    clearInterval(timer);
-                } else {
-                    element.textContent = formatNumber(Math.floor(current));
-                }
-            }, 30);
-        };
-
-        const formatNumber = (num) => {
-            if (num >= 1000000000) return (num / 1000000000).toFixed(1) + 'B';
-            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-            return num.toString();
-        };
-
-        // Trigger counter animation when stats come into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.animated) {
-                    entry.target.dataset.animated = 'true';
-                    const statCards = entry.target.querySelectorAll('.stat-card');
-                    statCards.forEach(card => {
-                        const valueElement = card.querySelector('.text-3xl, .text-4xl');
-                        if (valueElement && !valueElement.dataset.counted) {
-                            valueElement.dataset.counted = 'true';
-                            const text = valueElement.textContent;
-                            const number = parseInt(text.replace(/[^0-9]/g, ''));
-                            if (!isNaN(number)) {
-                                valueElement.textContent = '0';
-                                setTimeout(() => animateCounter(valueElement, number), 200);
-                            }
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.bg-gradient-to-br.from-red-50').forEach(el => {
-            statsObserver.observe(el);
-        });
-    </script>
-
-    <script>
-        function toggleAccordion(button) {
-            const content = button.parentElement.nextElementSibling;
-            const icon = button.querySelector('.accordion-icon');
-            const isActive = content.classList.contains('active');
-            
-            // Close all accordions
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelectorAll('.accordion-icon').forEach(item => {
-                item.style.transform = 'rotate(0deg)';
-            });
-            
-            // Open clicked accordion if it was closed
-            if (!isActive) {
-                content.classList.add('active');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-    </script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        accent: '#f5f5f5',
-                        'accent-foreground': '#1a1a1a',
-                        secondary: '#e5e5e5',
-                        'secondary-foreground': '#262626',
-                        card: '#ffffff',
-                        'card-foreground': '#1a1a1a',
-                        primary: '#dc2626',
-                        ring: '#3b82f6'
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <script>
-    const words = [
-        "Breakthrough!",
-        "Innovation!",
-        "Excellence!",
-        "Advancement!",
-        "Mastery!",
-        "Discoveries!",
-        "Solutions!",
-        "Leadership!"
-    ];
-    let index = 0;
-    const textEl = document.getElementById("changingWord");
-    const bgBox = document.getElementById("bgBox");
-
-    function fadeInText(word) {
-        textEl.innerHTML = ""; // clear previous
-
-        // Measure word width to animate background
-        const temp = document.createElement("span");
-        temp.textContent = word;
-        temp.className = "text-6xl font-extrabold invisible absolute whitespace-nowrap";
-        document.body.appendChild(temp);
-        const newWidth = temp.getBoundingClientRect().width;
-        document.body.removeChild(temp);
-        bgBox.style.width = newWidth + 20 + "px"; // add padding offset
-
-        // Add letters one by one
-        [...word].forEach((letter, i) => {
-        const span = document.createElement("span");
-        span.textContent = letter;
-        span.className = "opacity-0 transition-opacity duration-300 ease-out inline-block";
-        textEl.appendChild(span);
-        setTimeout(() => {
-            span.classList.add("opacity-100");
-        }, i * 80);
-        });
-    }
-
-    // Initial render
-    fadeInText(words[index]);
-
-    setInterval(() => {
-        index = (index + 1) % words.length;
-
-        // Fade out current letters
-        const letters = textEl.querySelectorAll("span");
-        letters.forEach((span, i) => {
-        setTimeout(() => span.classList.add("opacity-0"), i * 30);
-        });
-
-        // After fade-out, render next word
-        setTimeout(() => {
-        fadeInText(words[index]);
-        }, letters.length * 30 + 300);
-    }, 3000);
-    </script>
-
-    <script>
-    const cards = document.querySelectorAll('#dynamicGrid .card');
-    let activeIndex = 0;
-    let isHovering = false;
-
-    function updateGrid() {
-        cards.forEach((card, i) => {
-            const img = card.querySelector('.card-img');
-            const content = card.querySelector('.content');
-            const heading = content.querySelector('h3');
-            const paragraph = content.querySelector('p');
-
-            if (i === activeIndex) {
-                // Active card
-                card.style.flex = "2.5";
-                card.style.zIndex = "10";
-                card.style.transform = "scale(1.02)";
-                heading.style.opacity = "1";
-                heading.style.transform = "translateY(0)";
-                paragraph.style.opacity = "1";
-                paragraph.style.transform = "translateY(0)";
-
-                // Hover: just zoom image a bit
-                card.onmouseenter = () => {
-                    isHovering = true;
-                    img.style.transform = "scale(1.05)";
-                };
-                card.onmouseleave = () => {
-                    isHovering = false;
-                    img.style.transform = "scale(1.02)";
-                };
-            } else {
-                // Non-active cards
-                card.style.flex = "1";
-                card.style.zIndex = "1";
-                card.style.transform = "scale(1)";
-                heading.style.opacity = "0";
-                heading.style.transform = "translateY(8px)";
-                paragraph.style.opacity = "0";
-                paragraph.style.transform = "translateY(8px)";
-
-                // Hover: show heading only
-                card.onmouseenter = () => {
-                    img.style.transform = "scale(1.05)";
-                    heading.style.opacity = "1";
-                    heading.style.transform = "translateY(0)";
-                };
-                card.onmouseleave = () => {
-                    img.style.transform = "scale(1)";
-                    heading.style.opacity = "0";
-                    heading.style.transform = "translateY(8px)";
-                };
-            }
-        });
-
-        activeIndex = (activeIndex + 1) % cards.length;
-    }
-
-    // Initial state
-    updateGrid();
-
-    // Auto-cycle through cards
-    let interval = setInterval(() => {
-        if (!isHovering) {
-            updateGrid();
-        }
-    }, 3500);
-
-    // Click to activate specific card
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            activeIndex = index;
-            updateGrid();
-            clearInterval(interval);
-            interval = setInterval(() => {
-                if (!isHovering) {
-                    updateGrid();
-                }
-            }, 3500);
-        });
-    });
-    </script>
-
+    <!-- Service Section -->
+<section class="relative z-10 py-16 sm:py-24 bg-gradient-to-b from-black/80 to-gray-900 text-white">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="space-y-6">
+        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold uppercase bg-red-600/80 text-white shadow-lg shadow-red-600/30">
+          Our Services
+        </span>
+        <h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+          Pioneering <span class="text-red-600">Engineering & Technology Solutions</span>
+        </h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          At the Consortium for Innovators in Engineering & Technology, we transform visionary ideas into reality through cutting-edge solutions. Our collaborative approach and deep expertise drive innovation across industries.
+        </p>
+        <ul class="space-y-3 text-gray-200">
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            Quantum Computing for Advanced Applications
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            Sustainable Materials & Smart Infrastructure
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            Zero-Emission Aviation Technologies
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            Collaborative R&D for Industry Innovation
+          </li>
+        </ul>
+        <div class="flex gap-4 mt-8">
+          <button
+            class="bg-red-600 text-white hover:bg-red-700 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 transform hover:scale-105 h-11 px-8 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            aria-label="Start a project with CIET"
+          >
+            Start Your Project
+          </button>
+          <a
+            href="/case-studies"
+            class="text-red-600 hover:text-red-500 font-medium underline transition-colors"
+            aria-label="Explore CIET case studies"
+          >
+            Explore Case Studies
+          </a>
+        </div>
+      </div>
+      <!-- Image Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="relative aspect-square rounded-lg overflow-hidden group">
+          <img
+            src="https://picsum.photos/seed/ciet-quantum-red/600/400"
+            alt="Quantum computing technology for medical advancements"
+            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
+          />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-sm font-medium text-center px-2">Quantum Computing Solutions</p>
+          </div>
+        </div>
+        <div class="relative aspect-square rounded-lg overflow-hidden group">
+          <img
+            src="https://picsum.photos/seed/ciet-concrete-red/600/400"
+            alt="Self-healing materials for sustainable infrastructure"
+            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
+          />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-sm font-medium text-center px-2">Sustainable Materials</p>
+          </div>
+        </div>
+        <div class="relative aspect-square rounded-lg overflow-hidden group">
+          <img
+            src="https://picsum.photos/seed/ciet-aviation-red/600/400"
+            alt="Zero-emission aircraft prototype"
+            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
+          />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-sm font-medium text-center px-2">Advanced Aviation</p>
+          </div>
+        </div>
+        <div class="relative aspect-square rounded-lg overflow-hidden group">
+          <img
+            src="https://picsum.photos/seed/ciet-about-pro/1200/800"
+            alt="Collaborative engineering with holographic displays"
+            class="object-cover transition-transform duration-500 group-hover:scale-105 absolute h-full w-full inset-0"
+          />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-sm font-medium text-center px-2">Collaborative R&D</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </body>
 </html>
